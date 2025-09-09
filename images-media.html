@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immagini e Media - HTML e CSS Tutorial</title>
+    
+    <style>
+        /* CSS RESET E VARIABILI */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --colore-primario: #2c3e50;
+            --colore-secondario: #3498db;
+            --colore-accent: #e74c3c;
+            --colore-testo: #333;
+            --colore-sfondo: #f8f9fa;
+            --colore-successo: #27ae60;
+            --colore-warning: #f39c12;
+            --colore-info: #3498db;
+        }
+        
+        /* STILI GENERALI */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+        }
+        
+        /* HEADER E NAVIGAZIONE */
+        header {
+            background-color: var(--colore-primario);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--colore-secondario);
+        }
+        
+        .breadcrumb {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--colore-secondario);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* CONTENUTO PRINCIPALE */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* SEZIONE HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--colore-secondario), var(--colore-primario));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* SEZIONI CONTENUTO */
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: var(--colore-primario);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--colore-secondario);
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: var(--colore-secondario);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        /* DEMO INTERATTIVE */
+        .demo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .demo-code {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .demo-result {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 2px solid #e0e0e0;
+        }
+        
+        .demo-result h4 {
+            color: var(--colore-primario);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        /* CODICE DI ESEMPIO */
+        .code-example {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        
+        .code-example .tag {
+            color: #e74c3c;
+        }
+        
+        .code-example .attribute {
+            color: #f39c12;
+        }
+        
+        .code-example .value {
+            color: #2ecc71;
+        }
+        
+        .code-example .comment {
+            color: #95a5a6;
+            font-style: italic;
+        }
+        
+        /* BOX INFORMATIVI */
+        .info-box {
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+        
+        .info-box.tip {
+            background-color: #d5f4e6;
+            border-color: var(--colore-successo);
+            color: #155724;
+        }
+        
+        .info-box.warning {
+            background-color: #fff3cd;
+            border-color: var(--colore-warning);
+            color: #856404;
+        }
+        
+        .info-box.info {
+            background-color: #d1ecf1;
+            border-color: var(--colore-info);
+            color: #0c5460;
+        }
+        
+        .info-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* CARD ESEMPI */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .example-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .example-card h4 {
+            color: var(--colore-primario);
+            margin-bottom: 1rem;
+        }
+        
+        /* PLAYGROUND INTERATTIVO */
+        .playground {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .playground h3 {
+            color: var(--colore-primario);
+            margin-bottom: 1rem;
+        }
+        
+        .playground textarea {
+            width: 100%;
+            height: 150px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .playground button {
+            background-color: var(--colore-secondario);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .playground button:hover {
+            background-color: #2980b9;
+        }
+        
+        .playground-result {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-top: 1rem;
+            min-height: 100px;
+        }
+        
+        /* BOTTONI NAVIGAZIONE */
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .btn-primary {
+            background-color: var(--colore-secondario);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #545b62;
+            transform: translateY(-2px);
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .demo-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            main {
+                margin-top: 120px;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                max-width: none;
+            }
+        }
+        
+        /* STILI SPECIFICI PER MEDIA */
+        .media-example {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .media-example img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .media-example video,
+        .media-example audio {
+            max-width: 100%;
+            margin: 1rem 0;
+        }
+        
+        .format-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .format-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .format-item h5 {
+            color: var(--colore-primario);
+            margin-bottom: 0.5rem;
+        }
+        
+        .responsive-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .responsive-demo img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER CON NAVIGAZIONE -->
+    <header>
+        <nav>
+            <div class="logo">HTML & CSS Tutorial</div>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> > Immagini e Media
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main>
+        <div class="container">
+            <!-- SEZIONE HERO -->
+            <section class="hero">
+                <h1>🖼️ Immagini e Media</h1>
+                <p>Impara a inserire e gestire immagini, video e audio nelle tue pagine web</p>
+            </section>
+
+            <!-- INTRODUZIONE -->
+            <section class="section">
+                <h2>Introduzione ai Media HTML</h2>
+                <p>I media (immagini, video, audio) rendono le pagine web più interessanti e coinvolgenti. 
+                HTML5 offre diversi tag per incorporare contenuti multimediali in modo semplice ed efficace.</p>
+                
+                <div class="info-box tip">
+                    <strong>💡 Consiglio:</strong>
+                    Ottimizza sempre le immagini per il web per migliorare i tempi di caricamento!
+                </div>
+            </section>
+
+            <!-- TAG IMG -->
+            <section class="section">
+                <h2>Il Tag &lt;img&gt;</h2>
+                <p>Il tag <code>&lt;img&gt;</code> è utilizzato per inserire immagini nelle pagine web. È un tag auto-chiudente.</p>
+                
+                <h3>Attributi Essenziali</h3>
+                <div class="demo-container">
+                    <div class="demo-code">
+<span class="comment">&lt;!-- Immagine base --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"immagine.jpg"</span> 
+     <span class="attribute">alt</span>=<span class="value">"Descrizione immagine"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Con dimensioni --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"foto.jpg"</span> 
+     <span class="attribute">alt</span>=<span class="value">"Una bella foto"</span>
+     <span class="attribute">width</span>=<span class="value">"300"</span> 
+     <span class="attribute">height</span>=<span class="value">"200"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Responsive --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"responsive.jpg"</span> 
+     <span class="attribute">alt</span>=<span class="value">"Immagine responsive"</span>
+     <span class="attribute">style</span>=<span class="value">"max-width: 100%; height: auto;"</span><span class="tag">&gt;</span>
+                    </div>
+                    <div class="demo-result">
+                        <h4>Risultato:</h4>
+                        <div class="media-example">
+                            <img src="immagini/esempio1.jpg" alt="Esempio immagine" style="max-width: 100%; height: auto;">
+                            <p><small>Immagine di esempio responsive</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box warning">
+                    <strong>⚠️ Importante:</strong>
+                    L'attributo <code>alt</code> è obbligatorio per l'accessibilità. Descrive l'immagine per screen reader e utenti con disabilità visive.
+                </div>
+            </section>
+
+            <!-- FORMATI IMMAGINE -->
+            <section class="section">
+                <h2>Formati di Immagine</h2>
+                <p>Ogni formato ha caratteristiche specifiche per diversi utilizzi:</p>
+                
+                <div class="format-comparison">
+                    <div class="format-item">
+                        <h5>JPEG (.jpg)</h5>
+                        <p>Ideale per fotografie</p>
+                        <small>Compressione con perdita</small>
+                    </div>
+                    <div class="format-item">
+                        <h5>PNG (.png)</h5>
+                        <p>Supporta trasparenza</p>
+                        <small>Perfetto per loghi</small>
+                    </div>
+                    <div class="format-item">
+                        <h5>GIF (.gif)</h5>
+                        <p>Animazioni semplici</p>
+                        <small>256 colori max</small>
+                    </div>
+                    <div class="format-item">
+                        <h5>SVG (.svg)</h5>
+                        <p>Grafica vettoriale</p>
+                        <small>Scalabile infinitamente</small>
+                    </div>
+                    <div class="format-item">
+                        <h5>WebP (.webp)</h5>
+                        <p>Formato moderno</p>
+                        <small>Ottima compressione</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FIGURE E FIGCAPTION -->
+            <section class="section">
+                <h2>Figure e Didascalie</h2>
+                <p>I tag <code>&lt;figure&gt;</code> e <code>&lt;figcaption&gt;</code> permettono di associare didascalie alle immagini:</p>
+                
+                <div class="demo-container">
+                    <div class="demo-code">
+<span class="tag">&lt;figure&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"grafico.png"</span> 
+       <span class="attribute">alt</span>=<span class="value">"Grafico vendite 2024"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;figcaption&gt;</span>
+    Figura 1: Andamento vendite primo trimestre
+  <span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span>
+                    </div>
+                    <div class="demo-result">
+                        <h4>Risultato:</h4>
+                        <figure style="text-align: center; margin: 1rem 0;">
+                            <img src="/placeholder.svg?height=120&width=200&text=Grafico+Vendite" alt="Grafico vendite 2024" style="max-width: 100%; height: auto;">
+                            <figcaption style="margin-top: 0.5rem; font-style: italic; color: #666;">
+                                Figura 1: Andamento vendite primo trimestre
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!-- IMMAGINI RESPONSIVE -->
+            <section class="section">
+                <h2>Immagini Responsive</h2>
+                <p>Le immagini responsive si adattano automaticamente alle dimensioni dello schermo:</p>
+                
+                <div class="code-example">
+<span class="comment">/* CSS per immagini responsive */</span>
+<span class="tag">img</span> {
+  <span class="attribute">max-width</span>: <span class="value">100%</span>;
+  <span class="attribute">height</span>: <span class="value">auto</span>;
+}
+
+<span class="comment">/* Immagine che occupa tutta la larghezza */</span>
+<span class="tag">.full-width</span> {
+  <span class="attribute">width</span>: <span class="value">100%</span>;
+  <span class="attribute">height</span>: <span class="value">auto</span>;
+}
+                </div>
+                
+                <h3>Esempio Responsive</h3>
+                <div class="responsive-demo">
+                    <img src="immagini/paesaggio1.jpg" alt="Paesaggio 1">
+                    <img src="immagini/citta.jpg" alt="Città 1">
+                    <img src="immagini/natura1.jpg" alt="Natura 1">
+                    <img src="immagini/tramonto1.jpg" alt="Tramonto 1">
+                </div>
+                <p><small>Ridimensiona la finestra per vedere l'effetto responsive!</small></p>
+            </section>
+
+            <!-- VIDEO HTML5 -->
+            <section class="section">
+                <h2>Video HTML5</h2>
+                <p>Il tag <code>&lt;video&gt;</code> permette di incorporare video direttamente nella pagina:</p>
+                
+                <div class="demo-container">
+                    <div class="demo-code">
+<span class="comment">&lt;!-- Video base --&gt;</span>
+<span class="tag">&lt;video</span> <span class="attribute">controls</span> <span class="attribute">width</span>=<span class="value">"400"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attribute">src</span>=<span class="value">"video.mp4"</span> <span class="attribute">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attribute">src</span>=<span class="value">"video.webm"</span> <span class="attribute">type</span>=<span class="value">"video/webm"</span><span class="tag">&gt;</span>
+  Il tuo browser non supporta il video.
+<span class="tag">&lt;/video&gt;</span>
+
+<span class="comment">&lt;!-- Con attributi aggiuntivi --&gt;</span>
+<span class="tag">&lt;video</span> <span class="attribute">controls</span> <span class="attribute">autoplay</span> <span class="attribute">muted</span> 
+       <span class="attribute">loop</span> <span class="attribute">poster</span>=<span class="value">"anteprima.jpg"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attribute">src</span>=<span class="value">"video.mp4"</span> <span class="attribute">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/video&gt;</span>
+                    </div>
+                    <div class="demo-result">
+                        <h4>Attributi Video:</h4>
+                        <ul>
+                            <li><strong>controls:</strong> Mostra i controlli</li>
+                            <li><strong>autoplay:</strong> Avvio automatico</li>
+                            <li><strong>muted:</strong> Audio disattivato</li>
+                            <li><strong>loop:</strong> Ripetizione continua</li>
+                            <li><strong>poster:</strong> Immagine anteprima</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-box info">
+                    <strong>ℹ️ Nota:</strong>
+                    Usa sempre <code>muted</code> con <code>autoplay</code> per rispettare le policy dei browser moderni.
+                </div>
+            </section>
+
+            <!-- AUDIO HTML5 -->
+            <section class="section">
+                <h2>Audio HTML5</h2>
+                <p>Il tag <code>&lt;audio&gt;</code> permette di incorporare file audio:</p>
+                
+                <div class="demo-container">
+                    <div class="demo-code">
+<span class="comment">&lt;!-- Audio base --&gt;</span>
+<span class="tag">&lt;audio</span> <span class="attribute">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attribute">src</span>=<span class="value">"musica.mp3"</span> <span class="attribute">type</span>=<span class="value">"audio/mpeg"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attribute">src</span>=<span class="value">"musica.ogg"</span> <span class="attribute">type</span>=<span class="value">"audio/ogg"</span><span class="tag">&gt;</span>
+  Il tuo browser non supporta l'audio.
+<span class="tag">&lt;/audio&gt;</span>
+
+<span class="comment">&lt;!-- Audio con loop --&gt;</span>
+<span class="tag">&lt;audio</span> <span class="attribute">controls</span> <span class="attribute">loop</span> <span class="attribute">preload</span>=<span class="value">"auto"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attribute">src</span>=<span class="value">"sottofondo.mp3"</span> <span class="attribute">type</span>=<span class="value">"audio/mpeg"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/audio&gt;</span>
+                    </div>
+                    <div class="demo-result">
+                        <h4>Attributi Audio:</h4>
+                        <ul>
+                            <li><strong>controls:</strong> Mostra i controlli</li>
+                            <li><strong>autoplay:</strong> Avvio automatico</li>
+                            <li><strong>loop:</strong> Ripetizione continua</li>
+                            <li><strong>preload:</strong> Caricamento anticipato</li>
+                            <li><strong>muted:</strong> Audio disattivato</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CSS PER MEDIA -->
+            <section class="section">
+                <h2>Stili CSS per Media</h2>
+                <p>Esempi di come stilizzare immagini e media con CSS:</p>
+                
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h4>Immagine Circolare</h4>
+                        <div class="code-example">
+<span class="tag">.circular</span> {
+  <span class="attribute">border-radius</span>: <span class="value">50%</span>;
+  <span class="attribute">width</span>: <span class="value">150px</span>;
+  <span class="attribute">height</span>: <span class="value">150px</span>;
+  <span class="attribute">object-fit</span>: <span class="value">cover</span>;
+}
+                        </div>
+                        <div class="media-example">
+                            <img src="/placeholder.svg?height=100&width=100&text=Avatar" alt="Immagine circolare" style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover;">
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>Effetto Hover</h4>
+                        <div class="code-example">
+<span class="tag">.hover-effect</span> {
+  <span class="attribute">transition</span>: <span class="value">transform 0.3s</span>;
+}
+
+<span class="tag">.hover-effect:hover</span> {
+  <span class="attribute">transform</span>: <span class="value">scale(1.1)</span>;
+}
+                        </div>
+                        <div class="media-example">
+                            <img src="/placeholder.svg?height=80&width=120&text=Hover" alt="Effetto hover" style="transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>Bordi e Ombre</h4>
+                        <div class="code-example">
+<span class="tag">.styled-img</span> {
+  <span class="attribute">border</span>: <span class="value">3px solid #3498db</span>;
+  <span class="attribute">border-radius</span>: <span class="value">10px</span>;
+  <span class="attribute">box-shadow</span>: <span class="value">0 4px 8px rgba(0,0,0,0.2)</span>;
+}
+                        </div>
+                        <div class="media-example">
+                            <img src="/placeholder.svg?height=80&width=120&text=Styled" alt="Immagine stilizzata" style="border: 3px solid #3498db; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>Filtri CSS</h4>
+                        <div class="code-example">
+<span class="tag">.filtered</span> {
+  <span class="attribute">filter</span>: <span class="value">grayscale(50%) brightness(1.2)</span>;
+}
+                        </div>
+                        <div class="media-example">
+                            <img src="/placeholder.svg?height=80&width=120&text=Filter" alt="Immagine filtrata" style="filter: grayscale(50%) brightness(1.2);">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BEST PRACTICES -->
+            <section class="section">
+                <h2>Best Practices</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h4>🚀 Performance</h4>
+                        <ul>
+                            <li>Ottimizza le dimensioni dei file</li>
+                            <li>Usa formati moderni (WebP, AVIF)</li>
+                            <li>Implementa lazy loading</li>
+                            <li>Comprimi video e audio</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>♿ Accessibilità</h4>
+                        <ul>
+                            <li>Sempre attributo <code>alt</code> descrittivo</li>
+                            <li>Contrasto sufficiente per testi su immagini</li>
+                            <li>Sottotitoli per video</li>
+                            <li>Controlli accessibili da tastiera</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>📱 Responsive</h4>
+                        <ul>
+                            <li>Usa <code>max-width: 100%</code></li>
+                            <li>Considera diverse risoluzioni</li>
+                            <li>Testa su dispositivi mobili</li>
+                            <li>Usa breakpoint appropriati</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>🔧 SEO</h4>
+                        <ul>
+                            <li>Nomi file descrittivi</li>
+                            <li>Attributi alt ottimizzati</li>
+                            <li>Dimensioni appropriate</li>
+                            <li>Sitemap per immagini</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLAYGROUND INTERATTIVO -->
+            <section class="section">
+                <h2>🎮 Playground Interattivo</h2>
+                <div class="playground">
+                    <h3>Prova il Codice Media</h3>
+                    <p>Modifica il codice HTML qui sotto e vedi il risultato:</p>
+                    <textarea id="mediaCode" placeholder="Scrivi qui il tuo codice HTML per media...">
+<img src="/placeholder.svg?height=150&width=200&text=La+mia+immagine" alt="La mia immagine" style="border-radius: 10px;">
+
+<figure>
+  <img src="/placeholder.svg?height=100&width=150&text=Grafico" alt="Grafico">
+  <figcaption>Figura 1: I miei dati</figcaption>
+</figure></textarea>
+                    <button onclick="updateMediaResult()">Visualizza Risultato</button>
+                    <div class="playground-result" id="mediaResult">
+                        <img src="/placeholder.svg?height=150&width=200&text=La+mia+immagine" alt="La mia immagine" style="border-radius: 10px;">
+                        <figure style="text-align: center; margin: 1rem 0;">
+                            <img src="/placeholder.svg?height=100&width=150&text=Grafico" alt="Grafico" style="max-width: 100%; height: auto;">
+                            <figcaption style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 1: I miei dati</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NAVIGAZIONE -->
+            <div class="navigation-buttons">
+                <a href="links-navigation.html" class="btn btn-secondary">← Link e Navigazione</a>
+                <a href="index.html" class="btn btn-primary">Torna alla Home</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function updateMediaResult() {
+            const code = document.getElementById('mediaCode').value;
+            const result = document.getElementById('mediaResult');
+            
+            try {
+                result.innerHTML = code;
+            } catch (error) {
+                result.innerHTML = '<p style="color: red;">Errore nel codice HTML. Controlla la sintassi.</p>';
+            }
+        }
+
+        // Navigazione smooth per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

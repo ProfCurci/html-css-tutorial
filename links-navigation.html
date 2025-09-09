@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link e Navigazione - Tutorial HTML e CSS</title>
+    
+    <style>
+        /* STILI BASE IDENTICI ALLE ALTRE PAGINE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --colore-primario: #2c3e50;
+            --colore-secondario: #3498db;
+            --colore-accent: #e74c3c;
+            --colore-testo: #333;
+            --colore-sfondo: #f8f9fa;
+            --colore-successo: #27ae60;
+            --colore-warning: #f39c12;
+            --colore-info: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+        }
+        
+        /* HEADER */
+        header {
+            background-color: var(--colore-primario);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--colore-secondario);
+        }
+        
+        .breadcrumb {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--colore-secondario);
+        }
+        
+        /* CONTENUTO PRINCIPALE */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--colore-secondario), var(--colore-primario));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* SEZIONI */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: var(--colore-primario);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--colore-secondario);
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: var(--colore-secondario);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        /* DEMO INTERATTIVA */
+        .interactive-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .demo-code {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .demo-result {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+        
+        .demo-header {
+            background: var(--colore-primario);
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: -1.5rem -1.5rem 1rem -1.5rem;
+            border-radius: 6px 6px 0 0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* LINK TYPES GRID */
+        .link-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .link-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .link-card:hover {
+            border-color: var(--colore-secondario);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .link-type {
+            background: var(--colore-primario);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .link-example {
+            background: #f8f9fa;
+            border-left: 3px solid var(--colore-secondario);
+            padding: 1rem;
+            font-family: monospace;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .link-demo {
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+        
+        /* NAVIGATION EXAMPLES */
+        .nav-examples {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .nav-example {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .nav-example h4 {
+            color: var(--colore-primario);
+            margin-bottom: 1rem;
+        }
+        
+        .nav-demo {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        /* MENU STYLES */
+        .menu-horizontal {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            background: var(--colore-primario);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        
+        .menu-horizontal a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+        
+        .menu-horizontal a:hover {
+            background: var(--colore-secondario);
+        }
+        
+        .menu-vertical {
+            list-style: none;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .menu-vertical li {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .menu-vertical li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-vertical a {
+            display: block;
+            color: var(--colore-testo);
+            text-decoration: none;
+            padding: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .menu-vertical a:hover {
+            background: var(--colore-secondario);
+            color: white;
+        }
+        
+        /* PLAYGROUND */
+        .link-playground {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .playground-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .playground-controls {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .playground-result {
+            background: white;
+            color: black;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        /* INFO BOXES */
+        .info-box {
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+        
+        .info-box.tip {
+            background: #e8f5e8;
+            border-color: var(--colore-successo);
+        }
+        
+        .info-box.warning {
+            background: #fff3cd;
+            border-color: var(--colore-warning);
+        }
+        
+        .info-box.info {
+            background: #d1ecf1;
+            border-color: var(--colore-info);
+        }
+        
+        .info-box h4 {
+            margin-bottom: 0.5rem;
+            color: inherit;
+        }
+        
+        /* CONTROLS */
+        .control-group {
+            margin: 1rem 0;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .control-group input,
+        .control-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .control-group input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* NAVIGATION BUTTONS */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--colore-secondario);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .interactive-demo,
+            .playground-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            main {
+                margin-top: 120px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .menu-horizontal {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .menu-horizontal li {
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">HTML & CSS Tutorial</div>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> → 
+                <a href="html_structure_page.html">Struttura HTML</a> → 
+                <a href="css_styles_page.html">CSS Base</a> → 
+                Link e Navigazione
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main>
+        <div class="container">
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <h1>🔗 Link e Navigazione</h1>
+                <p>Impariamo a collegare le pagine e creare menu di navigazione efficaci</p>
+            </section>
+
+            <!-- COS'È UN LINK -->
+            <section class="section">
+                <h2>🤔 Cos'è un Link?</h2>
+                <p>Un <strong>link</strong> (o collegamento) è un elemento che permette di navigare da una pagina all'altra, o verso risorse esterne. È quello che rende il web "interconnesso"!</p>
+                
+                <div class="interactive-demo">
+                    <div>
+                        <div class="demo-header">💻 Codice HTML</div>
+                        <div class="demo-code">
+&lt;a href="https://www.google.com"&gt;Vai su Google&lt;/a&gt;
+
+&lt;a href="pagina2.html"&gt;Vai alla Pagina 2&lt;/a&gt;
+
+&lt;a href="mailto:info@scuola.it"&gt;Invia Email&lt;/a&gt;
+
+&lt;a href="tel:+393331234567"&gt;Chiama&lt;/a&gt;
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="demo-header">👀 Risultato Visibile</div>
+                        <div class="demo-result">
+                            <p><a href="https://www.google.com" target="_blank" style="color: var(--colore-accent); text-decoration: underline;">Vai su Google</a></p>
+                            <p><a href="#" style="color: var(--colore-accent); text-decoration: underline;">Vai alla Pagina 2</a></p>
+                            <p><a href="mailto:info@scuola.it" style="color: var(--colore-accent); text-decoration: underline;">Invia Email</a></p>
+                            <p><a href="tel:+393331234567" style="color: var(--colore-accent); text-decoration: underline;">Chiama</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box tip">
+                    <h4>💡 Anatomia di un Link</h4>
+                    <p><code>&lt;a href="destinazione"&gt;Testo visibile&lt;/a&gt;</code><br>
+                    • <strong>href</strong> = dove andare quando si clicca<br>
+                    • <strong>Testo visibile</strong> = quello che l'utente vede e può cliccare</p>
+                </div>
+            </section>
+
+            <!-- TIPI DI LINK -->
+            <section class="section">
+                <h2>🎯 Tipi di Link</h2>
+                <p>Esistono diversi tipi di link, ognuno con uno scopo specifico:</p>
+                
+                <div class="link-types-grid">
+                    <div class="link-card">
+                        <div class="link-type">Link Esterni</div>
+                        <h4>Verso altri siti web</h4>
+                        <div class="link-example">
+&lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;
+&lt;a href="https://www.youtube.com"&gt;YouTube&lt;/a&gt;
+                        </div>
+                        <div class="link-demo">
+                            <a href="https://www.google.com" target="_blank" style="color: var(--colore-accent);">🌐 Vai su Google</a><br>
+                            <a href="https://www.youtube.com" target="_blank" style="color: var(--colore-accent);">📺 Vai su YouTube</a>
+                        </div>
+                        <small>💡 Si aprono in una nuova scheda con <code>target="_blank"</code></small>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-type">Link Interni</div>
+                        <h4>Verso altre pagine del sito</h4>
+                        <div class="link-example">
+&lt;a href="about.html"&gt;Chi Siamo&lt;/a&gt;
+&lt;a href="contatti.html"&gt;Contatti&lt;/a&gt;
+&lt;a href="../index.html"&gt;Home&lt;/a&gt;
+                        </div>
+                        <div class="link-demo">
+                            <a href="index.html" style="color: var(--colore-accent);">🏠 Torna alla Home</a><br>
+                            <a href="css_styles_page.html" style="color: var(--colore-accent);">🎨 Lezione CSS</a>
+                        </div>
+                        <small>💡 Usano percorsi relativi o assoluti</small>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-type">Link Email</div>
+                        <h4>Per aprire il client email</h4>
+                        <div class="link-example">
+&lt;a href="mailto:prof@scuola.it"&gt;Email al Prof&lt;/a&gt;
+&lt;a href="mailto:info@scuola.it?subject=Domanda"&gt;
+  Email con Oggetto
+&lt;/a&gt;
+                        </div>
+                        <div class="link-demo">
+                            <a href="mailto:prof@scuola.it" style="color: var(--colore-accent);">📧 Email al Professore</a><br>
+                            <a href="mailto:info@scuola.it?subject=Domanda%20HTML" style="color: var(--colore-accent);">📨 Email con Oggetto</a>
+                        </div>
+                        <small>💡 Apre automaticamente il programma email</small>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-type">Link Telefono</div>
+                        <h4>Per chiamare su mobile</h4>
+                        <div class="link-example">
+&lt;a href="tel:+393331234567"&gt;Chiama&lt;/a&gt;
+&lt;a href="tel:0123456789"&gt;Numero Fisso&lt;/a&gt;
+                        </div>
+                        <div class="link-demo">
+                            <a href="tel:+393331234567" style="color: var(--colore-accent);">📱 Chiama Mobile</a><br>
+                            <a href="tel:0123456789" style="color: var(--colore-accent);">☎️ Chiama Fisso</a>
+                        </div>
+                        <small>💡 Funziona solo su dispositivi con telefono</small>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-type">Link Anchor</div>
+                        <h4>Verso sezioni della stessa pagina</h4>
+                        <div class="link-example">
+&lt;a href="#sezione1"&gt;Vai alla Sezione 1&lt;/a&gt;
+&lt;a href="#top"&gt;Torna su&lt;/a&gt;
+
+&lt;h2 id="sezione1"&gt;Sezione 1&lt;/h2&gt;
+                        </div>
+                        <div class="link-demo">
+                            <a href="#navigation-examples" style="color: var(--colore-accent);">⬇️ Vai ai Menu</a><br>
+                            <a href="#top" style="color: var(--colore-accent);">⬆️ Torna su</a>
+                        </div>
+                        <small>💡 Usa # seguito dall'ID dell'elemento</small>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-type">Link File</div>
+                        <h4>Per scaricare documenti</h4>
+                        <div class="link-example">
+&lt;a href="documento.pdf"&gt;Scarica PDF&lt;/a&gt;
+&lt;a href="foto.jpg" download&gt;Scarica Foto&lt;/a&gt;
+                        </div>
+                        <div class="link-demo">
+                            <a href="#" style="color: var(--colore-accent);">📄 Scarica PDF</a><br>
+                            <a href="#" style="color: var(--colore-accent);">🖼️ Scarica Immagine</a>
+                        </div>
+                        <small>💡 L'attributo <code>download</code> forza il download</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ATTRIBUTI IMPORTANTI -->
+            <section class="section">
+                <h2>⚙️ Attributi Importanti dei Link</h2>
+                <p>I link hanno diversi attributi che ne modificano il comportamento:</p>
+                
+                <div class="interactive-demo">
+                    <div>
+                        <div class="demo-header">📋 Attributi Principali</div>
+                        <div class="demo-code">
+&lt;!-- Apre in nuova scheda --&gt;
+&lt;a href="https://google.com" target="_blank"&gt;
+  Google (nuova scheda)
+&lt;/a&gt;
+
+&lt;!-- Sicurezza per link esterni --&gt;
+&lt;a href="https://sito-esterno.com" 
+   target="_blank" 
+   rel="noopener noreferrer"&gt;
+  Link Sicuro
+&lt;/a&gt;
+
+&lt;!-- Titolo al passaggio del mouse --&gt;
+&lt;a href="pagina.html" 
+   title="Vai alla pagina informazioni"&gt;
+  Info
+&lt;/a&gt;
+
+&lt;!-- Forza il download --&gt;
+&lt;a href="file.pdf" download="nome-file.pdf"&gt;
+  Scarica
+&lt;/a&gt;
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="demo-header">🎯 Spiegazione</div>
+                        <div class="demo-result">
+                            <p><strong>target="_blank"</strong><br>
+                            Apre il link in una nuova scheda/finestra</p>
+                            
+                            <p><strong>rel="noopener noreferrer"</strong><br>
+                            Migliora la sicurezza per link esterni</p>
+                            
+                            <p><strong>title="..."</strong><br>
+                            Mostra un tooltip al passaggio del mouse</p>
+                            
+                            <p><strong>download="nome"</strong><br>
+                            Forza il download invece di aprire il file</p>
+                            
+                            <div style="margin-top: 1rem; padding: 1rem; background: #f0f8ff; border-radius: 4px;">
+                                <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" title="Vai su Google in sicurezza" style="color: var(--colore-accent);">🔗 Prova questo link sicuro</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box warning">
+                    <h4>⚠️ Sicurezza</h4>
+                    <p>Usate sempre <code>rel="noopener noreferrer"</code> con <code>target="_blank"</code> per link esterni. Previene attacchi di sicurezza!</p>
+                </div>
+            </section>
+
+            <!-- MENU DI NAVIGAZIONE -->
+            <section class="section" id="navigation-examples">
+                <h2>🧭 Menu di Navigazione</h2>
+                <p>I menu sono collezioni di link organizzati per aiutare gli utenti a navigare nel sito:</p>
+                
+                <div class="nav-examples">
+                    <div class="nav-example">
+                        <h4>📱 Menu Orizzontale</h4>
+                        <div class="link-example">
+&lt;nav&gt;
+  &lt;ul class="menu-horizontal"&gt;
+    &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="about.html"&gt;Chi Siamo&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="servizi.html"&gt;Servizi&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="contatti.html"&gt;Contatti&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+                        </div>
+                        <div class="nav-demo">
+                            <ul class="menu-horizontal">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#">Chi Siamo</a></li>
+                                <li><a href="#">Servizi</a></li>
+                                <li><a href="#">Contatti</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-example">
+                        <h4>📋 Menu Verticale</h4>
+                        <div class="link-example">
+&lt;nav&gt;
+  &lt;ul class="menu-vertical"&gt;
+    &lt;li&gt;&lt;a href="lezione1.html"&gt;Lezione 1: HTML Base&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="lezione2.html"&gt;Lezione 2: CSS Base&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="lezione3.html"&gt;Lezione 3: Link&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="lezione4.html"&gt;Lezione 4: Layout&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+                        </div>
+                        <div class="nav-demo">
+                            <ul class="menu-vertical">
+                                <li><a href="html_structure_page.html">Lezione 1: HTML Base</a></li>
+                                <li><a href="css_styles_page.html">Lezione 2: CSS Base</a></li>
+                                <li><a href="#">Lezione 3: Link</a></li>
+                                <li><a href="#">Lezione 4: Layout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box tip">
+                    <h4>💡 Best Practice per Menu</h4>
+                    <ul>
+                        <li>Usate sempre il tag <code>&lt;nav&gt;</code> per i menu principali</li>
+                        <li>Organizzate i link in liste <code>&lt;ul&gt;</code> e <code>&lt;li&gt;</code></li>
+                        <li>Rendete chiaro quale pagina è attiva</li>
+                        <li>Testate sempre su mobile!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- STILI CSS PER LINK -->
+            <section class="section">
+                <h2>🎨 Stili CSS per Link</h2>
+                <p>I link hanno 4 stati diversi che potete stilizzare:</p>
+                
+                <div class="interactive-demo">
+                    <div>
+                        <div class="demo-header">💻 CSS per Stati Link</div>
+                        <div class="demo-code">
+/* Link normale */
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Link visitato */
+a:visited {
+  color: #9b59b6;
+}
+
+/* Link al passaggio del mouse */
+a:hover {
+  color: #e74c3c;
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+/* Link mentre viene cliccato */
+a:active {
+  color: #27ae60;
+  transform: translateY(0);
+}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="demo-header">👀 Risultato</div>
+                        <div class="demo-result">
+                            <style>
+                                .demo-link {
+                                    color: #3498db;
+                                    text-decoration: none;
+                                    transition: all 0.3s ease;
+                                    display: block;
+                                    margin: 1rem 0;
+                                    padding: 0.5rem;
+                                    border: 1px solid transparent;
+                                    border-radius: 4px;
+                                }
+                                .demo-link:hover {
+                                    color: #e74c3c;
+                                    text-decoration: underline;
+                                    background: #f8f9fa;
+                                    border-color: #e0e0e0;
+                                    transform: translateY(-1px);
+                                }
+                                .demo-link:active {
+                                    color: #27ae60;
+                                    transform: translateY(0);
+                                }
+                            </style>
+                            <a href="#" class="demo-link">🔗 Passa il mouse qui sopra</a>
+                            <a href="#" class="demo-link">🎯 Prova a cliccare questo</a>
+                            <a href="#" class="demo-link">✨ Link con animazione</a>
+                            
+                            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                                Notate come cambiano colore e si muovono leggermente!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLAYGROUND INTERATTIVO -->
+            <section class="link-playground">
+                <h3>🎮 Playground: Crea il Tuo Link</h3>
+                <p>Sperimentate con diversi tipi di link e vedete il risultato in tempo reale!</p>
+                
+                <div class="playground-grid">
+                    <div class="playground-controls">
+                        <div class="control-group">
+                            <label>Tipo di Link:</label>
+                            <select id="linkType">
+                                <option value="internal">Link Interno</option>
+                                <option value="external">Link Esterno</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Telefono</option>
+                                <option value="anchor">Anchor (sezione)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Testo del Link:</label>
+                            <input type="text" id="linkText" placeholder="Inserisci il testo..." value="Il mio link">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Destinazione:</label>
+                            <input type="text" id="linkHref" placeholder="URL o destinazione..." value="https://www.google.com">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Colore:</label>
+                            <input type="color" id="linkColor" value="#3498db">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>
+                                <input type="checkbox" id="newTab"> Apri in nuova scheda
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="playground-result">
+                        <h4>🔍 Anteprima:</h4>
+                        <div id="linkPreview" style="margin: 1rem 0; padding: 1rem; border: 1px dashed #ccc; border-radius: 4px;">
+                            <a href="https://www.google.com" id="previewLink" style="color: #3498db; text-decoration: none;">Il mio link</a>
+                        </div>
+                        
+                        <h4>💻 Codice Generato:</h4>
+                        <div id="generatedCode" style="background: #f0f0f0; padding: 1rem; border-radius: 4px; font-family: monospace; font-size: 0.9rem; margin-top: 1rem;">
+                            &lt;a href="https://www.google.com"&gt;Il mio link&lt;/a&gt;
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ESERCIZIO PRATICO -->
+            <section class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h2 style="color: white; border-bottom-color: rgba(255,255,255,0.3);">🚀 Esercizio Pratico</h2>
+                <p>Ora tocca a voi! Create una pagina con un menu di navigazione completo.</p>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                    <h4>📝 Cosa fare:</h4>
+                    <ol>
+                        <li>Create un nuovo file chiamato <strong>menu-test.html</strong></li>
+                        <li>Aggiungete un menu orizzontale con almeno 5 link</li>
+                        <li>Includete diversi tipi di link (interno, esterno, email)</li>
+                        <li>Stilizzate i link con CSS (colori, hover effects)</li>
+                        <li>Testate tutti i link per assicurarvi che funzionino</li>
+                    </ol>
+                    
+                    <h4>🎯 Sfida Bonus:</h4>
+                    <ul>
+                        <li>Aggiungete un menu verticale nella sidebar</li>
+                        <li>Create un "breadcrumb" (percorso di navigazione)</li>
+                        <li>Aggiungete animazioni ai link con CSS</li>
+                        <li>Rendete il menu responsive per mobile</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- RECAP -->
+            <section class="section">
+                <h2>📚 Recap: Cosa Avete Imparato</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
+                        <h4>✅ Tipi di Link</h4>
+                        <p>Interni, esterni, email, telefono, anchor, file</p>
+                    </div>
+                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
+                        <h4>✅ Attributi Importanti</h4>
+                        <p>href, target, rel, title, download</p>
+                    </div>
+                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
+                        <h4>✅ Menu di Navigazione</h4>
+                        <p>Orizzontali, verticali, con nav e liste</p>
+                    </div>
+                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
+                        <h4>✅ Stili CSS</h4>
+                        <p>Stati dei link: normal, hover, active, visited</p>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; text-align: center;">
+                    <h3>🎉 Prossimo Passo: Immagini e Media</h3>
+                    <p>Ora che sapete collegare le pagine, impariamo ad aggiungere immagini e contenuti multimediali!</p>
+                </div>
+            </section>
+
+            <!-- NAVIGATION BUTTONS -->
+            <div class="nav-buttons">
+                <a href="css_styles_page.html" class="btn btn-secondary">← CSS Base</a>
+                <a href="#" class="btn btn-primary">Prossima Lezione: Immagini e Media →</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JAVASCRIPT PER PLAYGROUND -->
+    <script>
+        // Playground interattivo
+        const linkType = document.getElementById('linkType');
+        const linkText = document.getElementById('linkText');
+        const linkHref = document.getElementById('linkHref');
+        const linkColor = document.getElementById('linkColor');
+        const newTab = document.getElementById('newTab');
+        const previewLink = document.getElementById('previewLink');
+        const generatedCode = document.getElementById('generatedCode');
+        
+        function updatePreview() {
+            const text = linkText.value || 'Il mio link';
+            const color = linkColor.value;
+            let href = linkHref.value || '#';
+            
+            // Aggiorna href basato sul tipo
+            switch(linkType.value) {
+                case 'email':
+                    href = href.startsWith('mailto:') ? href : `mailto:${href}`;
+                    break;
+                case 'phone':
+                    href = href.startsWith('tel:') ? href : `tel:${href}`;
+                    break;
+                case 'anchor':
+                    href = href.startsWith('#') ? href : `#${href}`;
+                    break;
+            }
+            
+            // Aggiorna preview
+            previewLink.textContent = text;
+            previewLink.style.color = color;
+            previewLink.href = href;
+            
+            if (newTab.checked && linkType.value === 'external') {
+                previewLink.target = '_blank';
+                previewLink.rel = 'noopener noreferrer';
+            } else {
+                previewLink.target = '';
+                previewLink.rel = '';
+            }
+            
+            // Genera codice
+            let code = `&lt;a href="${href}"`;
+            if (newTab.checked && linkType.value === 'external') {
+                code += ` target="_blank" rel="noopener noreferrer"`;
+            }
+            if (color !== '#3498db') {
+                code += ` style="color: ${color}"`;
+            }
+            code += `&gt;${text}&lt;/a&gt;`;
+            
+            generatedCode.innerHTML = code;
+        }
+        
+        // Event listeners
+        [linkType, linkText, linkHref, linkColor, newTab].forEach(element => {
+            element.addEventListener('input', updatePreview);
+            element.addEventListener('change', updatePreview);
+        });
+        
+        // Aggiorna placeholder href basato sul tipo
+        linkType.addEventListener('change', function() {
+            switch(this.value) {
+                case 'internal':
+                    linkHref.placeholder = 'pagina.html';
+                    linkHref.value = 'about.html';
+                    break;
+                case 'external':
+                    linkHref.placeholder = 'https://www.esempio.com';
+                    linkHref.value = 'https://www.google.com';
+                    break;
+                case 'email':
+                    linkHref.placeholder = 'email@esempio.com';
+                    linkHref.value = 'info@scuola.it';
+                    break;
+                case 'phone':
+                    linkHref.placeholder = '+393331234567';
+                    linkHref.value = '+393331234567';
+                    break;
+                case 'anchor':
+                    linkHref.placeholder = 'sezione1';
+                    linkHref.value = 'top';
+                    break;
+            }
+            updatePreview();
+        });
+        
+        // Smooth scrolling per link anchor
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Inizializza preview
+        updatePreview();
+    </script>
+</body>
+</html>
