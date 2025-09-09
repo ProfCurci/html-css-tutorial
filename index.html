@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML e CSS - Tutorial per Studenti</title>
+    
+    <style>
+        /* CSS RESET E VARIABILI */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --colore-primario: #2c3e50;
+            --colore-secondario: #3498db;
+            --colore-accent: #e74c3c;
+            --colore-testo: #333;
+            --colore-sfondo: #f8f9fa;
+        }
+        
+        /* STILI GENERALI */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+        }
+        
+        /* HEADER E NAVIGAZIONE */
+        header {
+            background-color: var(--colore-primario);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--colore-secondario);
+        }
+        
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .menu a:hover {
+            color: var(--colore-secondario);
+        }
+        
+        /* CONTENUTO PRINCIPALE */
+        main {
+            margin-top: 80px; /* Spazio per l'header fisso */
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* SEZIONE HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--colore-secondario), var(--colore-primario));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--colore-accent);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* SEZIONI CONTENUTO */
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: var(--colore-primario);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--colore-secondario);
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: var(--colore-secondario);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        /* GRIGLIA DELLE LEZIONI */
+        .lezioni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .lezione-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lezione-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: var(--colore-secondario);
+        }
+        
+        .lezione-card h3 {
+            color: var(--colore-primario);
+            margin-bottom: 1rem;
+        }
+        
+        .lezione-card p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        /* CODICE DI ESEMPIO */
+        .code-example {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .code-example code {
+            color: var(--colore-primario);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--colore-primario);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            main {
+                margin-top: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER CON NAVIGAZIONE -->
+    <header>
+        <nav>
+            <div class="logo">HTML & CSS Tutorial</div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="html_structure_page.HTML">HTML Base</a></li>
+                <li><a href="css_styles_page.HTML">CSS Base</a></li>
+                <li><a href="#esempi">Esempi</a></li>
+                <li><a href="#esercizi">Esercizi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main>
+        <div class="container">
+            <!-- SEZIONE HERO -->
+            <section class="hero" id="home">
+                <h1>Impara HTML e CSS</h1>
+                <p>Un tutorial pratico per comprendere e modificare il codice web</p>
+                <a href="vscode_setup_guide.HTML" class="btn">Inizia il Tutorial</a>
+            </section>
+
+            <!-- SEZIONE INTRODUZIONE -->
+            <section class="section">
+                <h2>Benvenuti al Tutorial HTML e CSS</h2>
+                <p>Questo sito è progettato per aiutarvi a comprendere come funziona il codice che genera le pagine web. 
+                Non dovete imparare tutto a memoria, ma capire come leggere e modificare il codice esistente.</p>
+                
+                <h3>Cosa imparerete:</h3>
+                <ul>
+                    <li><strong>HTML:</strong> La struttura delle pagine web</li>
+                    <li><strong>CSS:</strong> Lo stile e l'aspetto delle pagine</li>
+                    <li><strong>Come modificare:</strong> Piccole customizzazioni pratiche</li>
+                    <li><strong>Come leggere:</strong> Interpretare il codice generato da strumenti automatici</li>
+                </ul>
+            </section>
+
+            <!-- SEZIONE PANORAMICA LEZIONI -->
+            <section class="section">
+                <h2>Le Nostre Lezioni</h2>
+                <div class="lezioni-grid">
+                    <div class="lezione-card">
+                        <h3>🏗️ Struttura HTML</h3>
+                        <p>Scopri gli elementi fondamentali: head, body, titoli e paragrafi</p>
+                        <a href="html_structure_page.HTML" class="btn">Vai alla Lezione</a>
+                    </div>
+                    
+                    <div class="lezione-card">
+                        <h3>🎨 Stili CSS</h3>
+                        <p>Impara a modificare colori, dimensioni e posizioni degli elementi</p>
+                        <a href="css_styles_page.HTML" class="btn">Vai alla Lezione</a>
+                    </div>
+                    
+                    <div class="lezione-card">
+                        <h3>🔗 Link e Navigazione</h3>
+                        <p>Come creare menu e collegamenti tra pagine</p>
+                        <a href="#" class="btn">Vai alla Lezione</a>
+                    </div>
+                    
+                    <div class="lezione-card">
+                        <h3>🖼️ Immagini e Media</h3>
+                        <p>Inserire e posizionare immagini nelle pagine web</p>
+                        <a href="#" class="btn">Vai alla Lezione</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ESEMPIO DI CODICE SPIEGATO -->
+            <section class="section">
+                <h2>Esempio: Come Leggere Questo Codice</h2>
+                <p>Guardate questo esempio di HTML con CSS:</p>
+                
+                <div class="code-example">
+                    <code>
+&lt;!-- HTML: Struttura --&gt;<br>
+&lt;div class="lezione-card"&gt;<br>
+&nbsp;&nbsp;&lt;h3&gt;Titolo della Lezione&lt;/h3&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Descrizione della lezione&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;a href="#" class="btn"&gt;Vai alla Lezione&lt;/a&gt;<br>
+&lt;/div&gt;<br><br>
+
+/* CSS: Stile */<br>
+.lezione-card {<br>
+&nbsp;&nbsp;background: white;<br>
+&nbsp;&nbsp;padding: 1.5rem;<br>
+&nbsp;&nbsp;border-radius: 8px;<br>
+}
+                    </code>
+                </div>
+                
+                <h3>Cosa Potete Modificare Facilmente:</h3>
+                <ul>
+                    <li><strong>Colori:</strong> Cambiate <code>background: white</code> in <code>background: lightblue</code></li>
+                    <li><strong>Spaziature:</strong> Modificate <code>padding: 1.5rem</code> per più o meno spazio interno</li>
+                    <li><strong>Testo:</strong> Sostituite il contenuto tra i tag HTML</li>
+                    <li><strong>Angoli:</strong> Cambiate <code>border-radius: 8px</code> per angoli più o meno arrotondati</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Tutorial HTML e CSS - Istituto Tecnico Informatico</p>
+        <p>Creato per facilitare l'apprendimento pratico del web development</p>
+    </footer>
+
+    <!-- JAVASCRIPT PER NAVIGAZIONE SMOOTH -->
+    <script>
+        // Navigazione smooth per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Evidenzia la sezione attiva nel menu
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

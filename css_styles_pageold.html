@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stili CSS - Tutorial HTML e CSS</title>
+    
+    <style>
+        /* STILI BASE IDENTICI ALLE ALTRE PAGINE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --colore-primario: #2c3e50;
+            --colore-secondario: #3498db;
+            --colore-accent: #e74c3c;
+            --colore-testo: #333;
+            --colore-sfondo: #f8f9fa;
+            --colore-successo: #27ae60;
+            --colore-warning: #f39c12;
+            --colore-info: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+        }
+        
+        /* HEADER */
+        header {
+            background-color: var(--colore-primario);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--colore-secondario);
+        }
+        
+        .breadcrumb {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--colore-secondario);
+        }
+        
+        /* CONTENUTO PRINCIPALE */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--colore-secondario), var(--colore-primario));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* SEZIONI */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: var(--colore-primario);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--colore-secondario);
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: var(--colore-secondario);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        /* CSS ANATOMY */
+        .css-rule {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 2rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            position: relative;
+            border-left: 4px solid var(--colore-accent);
+        }
+        
+        .css-selector {
+            color: #569cd6;
+            font-weight: bold;
+        }
+        
+        .css-property {
+            color: #9cdcfe;
+        }
+        
+        .css-value {
+            color: #ce9178;
+        }
+        
+        .css-comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+        
+        /* DEMO INTERATTIVA */
+        .interactive-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .demo-controls {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .demo-result {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            min-height: 200px;
+        }
+        
+        .demo-header {
+            background: var(--colore-primario);
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: -1.5rem -1.5rem 1rem -1.5rem;
+            border-radius: 6px 6px 0 0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* PROPERTY CARDS */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .property-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .property-card:hover {
+            border-color: var(--colore-secondario);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .property-name {
+            background: var(--colore-primario);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .property-example {
+            background: #f8f9fa;
+            border-left: 3px solid var(--colore-secondario);
+            padding: 0.5rem;
+            font-family: monospace;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .property-demo {
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+        
+        /* SELETTORI */
+        .selector-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .selector-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .selector-card h4 {
+            color: var(--colore-primario);
+            margin-bottom: 1rem;
+        }
+        
+        .selector-syntax {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 0.5rem 0;
+        }
+        
+        /* PLAYGROUND */
+        .css-playground {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .playground-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .playground-code {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+        }
+        
+        .playground-result {
+            background: white;
+            color: black;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        /* INFO BOXES */
+        .info-box {
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+        
+        .info-box.tip {
+            background: #e8f5e8;
+            border-color: var(--colore-successo);
+        }
+        
+        .info-box.warning {
+            background: #fff3cd;
+            border-color: var(--colore-warning);
+        }
+        
+        .info-box.info {
+            background: #d1ecf1;
+            border-color: var(--colore-info);
+        }
+        
+        .info-box h4 {
+            margin-bottom: 0.5rem;
+            color: inherit;
+        }
+        
+        /* CONTROLS */
+        .control-group {
+            margin: 1rem 0;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--colore-primario);
+        }
+        
+        .control-group input,
+        .control-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .color-picker {
+            height: 40px;
+        }
+        
+        /* NAVIGATION */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--colore-secondario);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .interactive-demo, .playground-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            main {
+                margin-top: 120px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">HTML & CSS Tutorial</div>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> → <a href="html_structure_page.html">Struttura HTML</a> → Stili CSS
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main>
+        <div class="container">
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <h1>🎨 Stili CSS</h1>
+                <p>Impariamo a dare colore, forma e bellezza alle nostre pagine web</p>
+            </section>
+
+            <!-- COS'È IL CSS -->
+            <section class="section">
+                <h2>🤔 Cos'è il CSS?</h2>
+                <p><strong>CSS</strong> significa <strong>Cascading Style Sheets</strong> (Fogli di Stile a Cascata). È il linguaggio che dice al browser <strong>come</strong> far apparire gli elementi HTML.</p>
+                
+                <div class="interactive-demo">
+                    <div class="demo-controls">
+                        <div class="demo-header">📄 HTML Senza CSS</div>
+                        <div style="font-family: monospace; background: #f0f0f0; padding: 1rem; border-radius: 4px;">
+                            &lt;h1&gt;Titolo&lt;/h1&gt;<br>
+                            &lt;p&gt;Paragrafo di testo&lt;/p&gt;
+                        </div>
+                        <div style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
+                            <h1 style="font: initial; margin: initial; color: initial;">Titolo</h1>
+                            <p style="font: initial; margin: initial;">Paragrafo di testo</p>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                            ↑ Brutto, vero? Tutto nero, font predefinito, nessun stile.
+                        </p>
+                    </div>
+                    
+                    <div class="demo-result">
+                        <div class="demo-header">✨ HTML Con CSS</div>
+                        <div style="font-family: monospace; background: #f0f0f0; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+                            h1 { color: blue; font-size: 2rem; }<br>
+                            p { color: gray; line-height: 1.5; }
+                        </div>
+                        <div style="padding: 1rem; border: 1px solid #ccc;">
+                            <h1 style="color: blue; font-size: 2rem; margin-bottom: 1rem;">Titolo</h1>
+                            <p style="color: gray; line-height: 1.5; margin: 0;">Paragrafo di testo</p>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                            ↑ Molto meglio! Colori, dimensioni, spaziature personalizzate.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="info-box tip">
+                    <h4>💡 Analogia Utile</h4>
+                    <p>Pensate all'HTML come allo <strong>scheletro</strong> di una casa (struttura) e al CSS come alla <strong>decorazione</strong> (colori, mobili, stile).</p>
+                </div>
+            </section>
+
+            <!-- ANATOMIA DI UNA REGOLA CSS -->
+            <section class="section">
+                <h2>🔍 Anatomia di una Regola CSS</h2>
+                <p>Ogni regola CSS ha sempre la stessa struttura. Impariamo a leggerla:</p>
+                
+                <div class="css-rule">
+                    <span class="css-selector">h1</span> { <span class="css-comment">/* &lt;-- SELETTORE: dice "a quale elemento applicare lo stile" */</span><br>
+                    &nbsp;&nbsp;<span class="css-property">color</span>: <span class="css-value">blue</span>; <span class="css-comment">/* &lt;-- PROPRIETÀ: VALORE */</span><br>
+                    &nbsp;&nbsp;<span class="css-property">font-size</span>: <span class="css-value">2rem</span>; <span class="css-comment">/* &lt;-- Ogni proprietà finisce con ; */</span><br>
+                    &nbsp;&nbsp;<span class="css-property">margin-bottom</span>: <span class="css-value">1rem</span>;<br>
+                    } <span class="css-comment">/* &lt;-- Chiudere sempre con } */</span>
+                </div>
+                
+                <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <h3>🎯 Le Parti:</h3>
+                    <ul>
+                        <li><strong>SELETTORE</strong> (h1) = "Applica questo stile a tutti gli h1"</li>
+                        <li><strong>PROPRIETÀ</strong> (color, font-size) = "Cosa vuoi cambiare"</li>
+                        <li><strong>VALORE</strong> (blue, 2rem) = "Come vuoi che diventi"</li>
+                        <li><strong>;</strong> = "Ho finito questa proprietà"</li>
+                        <li><strong>{ }</strong> = "Tutto quello dentro si applica al selettore"</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SELETTORI FONDAMENTALI -->
+            <section class="section">
+                <h2>🎯 I Selettori CSS Fondamentali</h2>
+                <p>I selettori dicono al CSS <strong>su quale elemento</strong> applicare lo stile. Ci sono tre tipi principali:</p>
+                
+                <div class="selector-types">
+                    <div class="selector-card">
+                        <h4>🏷️ Selettore per TAG</h4>
+                        <div class="selector-syntax">
+                            <span class="css-selector">h1</span> { color: red; }
+                        </div>
+                        <p><strong>Significa:</strong> "Applica a tutti gli elementi h1"</p>
+                        <p><strong>HTML coinvolto:</strong> <code>&lt;h1&gt;Titolo&lt;/h1&gt;</code></p>
+                        <p><strong>Quando usarlo:</strong> Per stilizzare tutti gli elementi di quel tipo</p>
+                    </div>
+                    
+                    <div class="selector-card">
+                        <h4>🆔 Selettore per ID</h4>
+                        <div class="selector-syntax">
+                            <span class="css-selector">#menu</span> { background: blue; }
+                        </div>
+                        <p><strong>Significa:</strong> "Applica all'elemento con id='menu'"</p>
+                        <p><strong>HTML coinvolto:</strong> <code>&lt;div id="menu"&gt;...&lt;/div&gt;</code></p>
+                        <p><strong>Quando usarlo:</strong> Per un elemento unico e specifico</p>
+                    </div>
+                    
+                    <div class="selector-card">
+                        <h4>📝 Selettore per CLASSE</h4>
+                        <div class="selector-syntax">
+                            <span class="css-selector">.bottone</span> { padding: 10px; }
+                        </div>
+                        <p><strong>Significa:</strong> "Applica a tutti gli elementi con class='bottone'"</p>
+                        <p><strong>HTML coinvolto:</strong> <code>&lt;a class="bottone"&gt;Click&lt;/a&gt;</code></p>
+                        <p><strong>Quando usarlo:</strong> Per più elementi simili</p>
+                    </div>
+                </div>
+                
+                <div class="info-box info">
+                    <h4>🎲 Come Ricordare i Simboli</h4>
+                    <p>
+                        <strong>#</strong> = "hashtag" = unico → ID<br>
+                        <strong>.</strong> = "punto" = gruppo → CLASS<br>
+                        <strong>niente</strong> = tutti quelli del tag
+                    </p>
+                </div>
+            </section>
+
+            <!-- PROPRIETÀ CSS ESSENZIALI -->
+            <section class="section">
+                <h2>🛠️ Proprietà CSS Essenziali</h2>
+                <p>Queste sono le proprietà che modificherete più spesso. Non memorizzatele, ma imparate a riconoscerle!</p>
+                
+                <div class="property-grid">
+                    <div class="property-card">
+                        <div class="property-name">color</div>
+                        <h4>Colore del Testo</h4>
+                        <div class="property-example">color: red;<br>color: #ff0000;<br>color: rgb(255,0,0);</div>
+                        <div class="property-demo">
+                            <span style="color: red;">Testo rosso</span><br>
+                            <span style="color: blue;">Testo blu</span><br>
+                            <span style="color: #27ae60;">Testo verde</span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card">
+                        <div class="property-name">background-color</div>
+                        <h4>Colore di Sfondo</h4>
+                        <div class="property-example">background-color: yellow;<br>background: lightblue;</div>
+                        <div class="property-demo">
+                            <div style="background-color: yellow; padding: 0.5rem;">Sfondo giallo</div>
+                            <div style="background-color: lightblue; padding: 0.5rem; margin-top: 0.5rem;">Sfondo azzurro</div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card">
+                        <div class="property-name">font-size</div>
+                        <h4>Dimensione Testo</h4>
+                        <div class="property-example">font-size: 20px;<br>font-size: 1.5rem;<br>font-size: large;</div>
+                        <div class="property-demo">
+                            <div style="font-size: 12px;">Testo piccolo</div>
+                            <div style="font-size: 16px;">Testo normale</div>
+                            <div style="font-size: 24px;">Testo grande</div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card">
+                        <div class="property-name">padding</div>
+                        <h4>Spazio Interno</h4>
+                        <div class="property-example">padding: 20px;<br>padding: 10px 20px;</div>
+                        <div class="property-demo">
+                            <div style="background: #e0e0e0; padding: 5px; margin-bottom: 5px;">Poco padding</div>
+                            <div style="background: #e0e0e0; padding: 20px;">Molto padding</div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card">
+                        <div class="property-name">margin</div>
+                        <h4>Spazio Esterno</h4>
+                        <div class="property-example">margin: 20px;<br>margin-top: 10px;</div>
+                        <div class="property-demo">
+                            <div style="background: #e0e0e0; padding: 10px; margin-bottom: 5px;">Margine normale</div>
+                            <div style="background: #e0e0e0; padding: 10px; margin: 20px 0;">Margine grande</div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card">
+                        <div class="property-name">border</div>
+                        <h4>Bordi</h4>
+                        <div class="property-example">border: 1px solid black;<br>border-radius: 5px;</div>
+                        <div class="property-demo">
+                            <div style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">Bordo rettangolare</div>
+                            <div style="border: 2px solid blue; border-radius: 10px; padding: 10px;">Bordo arrotondato</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLAYGROUND INTERATTIVO -->
+            <section class="css-playground">
+                <h2 style="color: white; margin-bottom: 1rem;">🎮 CSS Playground</h2>
+                <p>Sperimentate con i CSS! Cambiate i valori qui sotto e vedete l'effetto in tempo reale:</p>
+                
+                <div class="playground-grid">
+                    <div>
+                        <h3 style="color: white; margin-bottom: 1rem;">🎛️ Controlli</h3>
+                        <div class="playground-code">
+                            <div>h1 {</div>
+                            <div>&nbsp;&nbsp;color: <span id="color-display">blue</span>;</div>
+                            <div>&nbsp;&nbsp;font-size: <span id="size-display">2rem</span>;</div>
+                            <div>&nbsp;&nbsp;background-color: <span id="bg-display">lightgray</span>;</div>
+                            <div>&nbsp;&nbsp;padding: <span id="padding-display">1rem</span>;</div>
+                            <div>&nbsp;&nbsp;border-radius: <span id="radius-display">0px</span>;</div>
+                            <div>}</div>
+                        </div>
+                        
+                        <div style="margin-top: 1rem;">
+                            <div class="control-group">
+                                <label for="text-color">Colore Testo:</label>
+                                <input type="color" id="text-color" class="color-picker" value="#0000ff">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="font-size">Dimensione Font:</label>
+                                <select id="font-size">
+                                    <option value="1rem">Piccolo (1rem)</option>
+                                    <option value="1.5rem">Normale (1.5rem)</option>
+                                    <option value="2rem" selected>Grande (2rem)</option>
+                                    <option value="3rem">Enorme (3rem)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="bg-color">Colore Sfondo:</label>
+                                <input type="color" id="bg-color" class="color-picker" value="#d3d3d3">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="padding-size">Padding:</label>
+                                <select id="padding-size">
+                                    <option value="0.5rem">Poco (0.5rem)</option>
+                                    <option value="1rem" selected>Normale (1rem)</option>
+                                    <option value="2rem">Tanto (2rem)</option>
+                                    <option value="3rem">Moltissimo (3rem)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="border-radius">Bordi Arrotondati:</label>
+                                <select id="border-radius">
+                                    <option value="0px" selected>Squadrati (0px)</option>
+                                    <option value="5px">Leggermente (5px)</option>
+                                    <option value="15px">Molto (15px)</option>
+                                    <option value="50px">Tondi (50px)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: white; margin-bottom: 1rem;">👀 Risultato</h3>
+                        <div class="playground-result">
+                            <h1 id="demo-title" style="color: blue; font-size: 2rem; background-color: lightgray; padding: 1rem; border-radius: 0px; margin: 0; text-align: center; transition: all 0.3s ease;">
+                                Il Mio Titolo!
+                            </h1>
+                            <p style="margin-top: 1rem; text-align: center; color: #666;">
+                                ↑ Cambiate i controlli a sinistra per vedere l'effetto!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DOVE SCRIVERE IL CSS -->
+            <section class="section">
+                <h2>📝 Dove Scrivere il CSS?</h2>
+                <p>Ci sono tre modi per aggiungere CSS alle vostre pagine. Vediamo quando usare ciascuno:</p>
+                
+                <div class="selector-types">
+                    <div class="selector-card">
+                        <h4>🎯 CSS Inline (nel tag)</h4>
+                        <div class="selector-syntax">
+                            &lt;h1 <span class="css-property">style="color: red; font-size: 2rem;"</span>&gt;Titolo&lt;/h1&gt;
+                        </div>
+                        <p><strong>Pro:</strong> Veloce per test rapidi</p>
+                        <p><strong>Contro:</strong> Difficile da gestire, non riutilizzabile</p>
+                        <p><strong>Quando usarlo:</strong> Solo per esper
