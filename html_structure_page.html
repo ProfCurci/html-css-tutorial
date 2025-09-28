@@ -1,341 +1,345 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Struttura HTML - Tutorial HTML e CSS</title>
-    
+
     <style>
-        /* STILI BASE IDENTICI ALLE ALTRE PAGINE */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --colore-primario: #2c3e50;
-            --colore-secondario: #3498db;
-            --colore-accent: #e74c3c;
-            --colore-testo: #333;
-            --colore-sfondo: #f8f9fa;
-            --colore-successo: #27ae60;
-            --colore-warning: #f39c12;
-            --colore-info: #17a2b8;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--colore-testo);
-            background-color: var(--colore-sfondo);
-        }
-        
-        /* HEADER */
-        header {
-            background-color: var(--colore-primario);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--colore-secondario);
-        }
-        
-        .breadcrumb {
-            color: #bdc3c7;
-            font-size: 0.9rem;
-        }
-        
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            color: var(--colore-secondario);
-        }
-        
-        /* CONTENUTO PRINCIPALE */
-        main {
-            margin-top: 80px;
-            padding: 2rem;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, var(--colore-secondario), var(--colore-primario));
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* SEZIONI */
-        .section {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .section h2 {
-            color: var(--colore-primario);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            border-bottom: 3px solid var(--colore-secondario);
-            padding-bottom: 0.5rem;
-        }
-        
-        .section h3 {
-            color: var(--colore-secondario);
-            margin: 1.5rem 0 1rem 0;
-            font-size: 1.3rem;
-        }
-        
-        /* ANATOMIA HTML */
-        .html-anatomy {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 2rem;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            margin: 1rem 0;
-            position: relative;
-            overflow-x: auto;
-        }
-        
-        .html-line {
-            margin: 0.5rem 0;
-            position: relative;
-        }
-        
-        .html-comment {
-            color: #6a9955;
-            font-style: italic;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-        }
-        
-        .highlight-tag {
-            background: rgba(52, 152, 219, 0.3);
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-        
-        .highlight-content {
-            background: rgba(231, 76, 60, 0.3);
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-        
-        /* TAG EXPLANATION */
-        .tag-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .tag-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 1rem;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-        }
-        
-        .tag-card:hover {
-            border-color: var(--colore-secondario);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .tag-name {
-            background: var(--colore-primario);
-            color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-family: monospace;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* LIVE DEMO */
+      /* STILI BASE IDENTICI ALLE ALTRE PAGINE */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --colore-primario: #2c3e50;
+        --colore-secondario: #3498db;
+        --colore-accent: #e74c3c;
+        --colore-testo: #333;
+        --colore-sfondo: #f8f9fa;
+        --colore-successo: #27ae60;
+        --colore-warning: #f39c12;
+        --colore-info: #17a2b8;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: var(--colore-testo);
+        background-color: var(--colore-sfondo);
+      }
+
+      /* HEADER */
+      header {
+        background-color: var(--colore-primario);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--colore-secondario);
+      }
+
+      .breadcrumb {
+        color: #bdc3c7;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .breadcrumb a:hover {
+        color: var(--colore-secondario);
+      }
+
+      /* CONTENUTO PRINCIPALE */
+      main {
+        margin-top: 80px;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--colore-secondario),
+          var(--colore-primario)
+        );
+        color: white;
+        text-align: center;
+        padding: 3rem 2rem;
+        border-radius: 10px;
+        margin-bottom: 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* SEZIONI */
+      .section {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .section h2 {
+        color: var(--colore-primario);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        border-bottom: 3px solid var(--colore-secondario);
+        padding-bottom: 0.5rem;
+      }
+
+      .section h3 {
+        color: var(--colore-secondario);
+        margin: 1.5rem 0 1rem 0;
+        font-size: 1.3rem;
+      }
+
+      /* ANATOMIA HTML */
+      .html-anatomy {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 2rem;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        margin: 1rem 0;
+        position: relative;
+        overflow-x: auto;
+      }
+
+      .html-line {
+        margin: 0.5rem 0;
+        position: relative;
+      }
+
+      .html-comment {
+        color: #6a9955;
+        font-style: italic;
+        margin-left: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .highlight-tag {
+        background: rgba(52, 152, 219, 0.3);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      .highlight-content {
+        background: rgba(231, 76, 60, 0.3);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      /* TAG EXPLANATION */
+      .tag-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .tag-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+      }
+
+      .tag-card:hover {
+        border-color: var(--colore-secondario);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .tag-name {
+        background: var(--colore-primario);
+        color: white;
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        font-family: monospace;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+
+      /* LIVE DEMO */
+      .demo-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .demo-code {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 1rem;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+      }
+
+      .demo-result {
+        background: white;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        min-height: 200px;
+      }
+
+      .demo-header {
+        background: var(--colore-secondario);
+        color: white;
+        padding: 0.5rem;
+        margin: -1rem -1rem 1rem -1rem;
+        border-radius: 6px 6px 0 0;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      /* ESERCIZIO PRATICO */
+      .exercise-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+      }
+
+      .exercise-box h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .exercise-steps {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      /* INFO BOX VARIANTS */
+      .info-box {
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+        border-left: 4px solid;
+      }
+
+      .info-box.tip {
+        background: #e8f5e8;
+        border-color: var(--colore-successo);
+      }
+
+      .info-box.warning {
+        background: #fff3cd;
+        border-color: var(--colore-warning);
+      }
+
+      .info-box.info {
+        background: #d1ecf1;
+        border-color: var(--colore-info);
+      }
+
+      .info-box h4 {
+        margin-bottom: 0.5rem;
+        color: inherit;
+      }
+
+      /* NAVIGATION */
+      .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+        gap: 1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--colore-secondario);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background-color: #95a5a6;
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background-color: #7f8c8d;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
         .demo-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 2rem 0;
+          grid-template-columns: 1fr;
         }
-        
-        .demo-code {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 1rem;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-        }
-        
-        .demo-result {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 1rem;
-            min-height: 200px;
-        }
-        
-        .demo-header {
-            background: var(--colore-secondario);
-            color: white;
-            padding: 0.5rem;
-            margin: -1rem -1rem 1rem -1rem;
-            border-radius: 6px 6px 0 0;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        /* ESERCIZIO PRATICO */
-        .exercise-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-        
-        .exercise-box h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .exercise-steps {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        /* INFO BOX VARIANTS */
-        .info-box {
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-            border-left: 4px solid;
-        }
-        
-        .info-box.tip {
-            background: #e8f5e8;
-            border-color: var(--colore-successo);
-        }
-        
-        .info-box.warning {
-            background: #fff3cd;
-            border-color: var(--colore-warning);
-        }
-        
-        .info-box.info {
-            background: #d1ecf1;
-            border-color: var(--colore-info);
-        }
-        
-        .info-box h4 {
-            margin-bottom: 0.5rem;
-            color: inherit;
-        }
-        
-        /* NAVIGATION */
+
         .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-            gap: 1rem;
+          flex-direction: column;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+
+        nav {
+          flex-direction: column;
+          padding: 1rem;
         }
-        
-        .btn-primary {
-            background-color: var(--colore-secondario);
-            color: white;
+
+        main {
+          margin-top: 120px;
         }
-        
-        .btn-primary:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
+
+        .hero h1 {
+          font-size: 2rem;
         }
-        
-        .btn-secondary {
-            background-color: #95a5a6;
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #7f8c8d;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .demo-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-            }
-            
-            nav {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            
-            main {
-                margin-top: 120px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
+      }
     </style>
-     <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?G-488Y55Z9BV"
@@ -348,307 +352,404 @@
       gtag("js", new Date());
       gtag("config", "G-488Y55Z9BV");
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- HEADER -->
     <header>
-        <nav>
-            <div class="logo">HTML & CSS Tutorial</div>
-            <div class="breadcrumb">
-                <a href="index.html">Home</a> → <a href="vscode_setup_guide.html">Setup</a> → Struttura HTML
-            </div>
-        </nav>
+      <nav>
+        <div class="logo">HTML & CSS Tutorial</div>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> →
+          <a href="vscode_setup_guide.html">Setup</a> → Struttura HTML
+        </div>
+      </nav>
     </header>
 
     <!-- CONTENUTO PRINCIPALE -->
     <main>
-        <div class="container">
-            <!-- HERO SECTION -->
-            <section class="hero">
-                <h1>🏗️ Struttura HTML</h1>
-                <p>Impariamo a leggere e comprendere la struttura di una pagina web</p>
-            </section>
+      <div class="container">
+        <!-- HERO SECTION -->
+        <section class="hero">
+          <h1>🏗️ Struttura HTML</h1>
+          <p>
+            Impariamo a leggere e comprendere la struttura di una pagina web
+          </p>
+        </section>
 
-            <!-- ANATOMIA DI UNA PAGINA HTML -->
-            <section class="section">
-                <h2>📋 Anatomia di una Pagina HTML</h2>
-                <p>Ogni pagina HTML ha sempre la stessa struttura di base. Impariamo a riconoscere le parti principali:</p>
-                
-                <div class="html-anatomy">
-                    <div class="html-line"><span class="highlight-tag">&lt;!DOCTYPE html&gt;</span> <span class="html-comment">&lt;-- Dice al browser: "Questa è una pagina HTML5" --&gt;</span></div>
-                    <div class="html-line"><span class="highlight-tag">&lt;html lang="it"&gt;</span> <span class="html-comment">&lt;-- Inizia la pagina, lingua italiana --&gt;</span></div>
-                    <div class="html-line">  <span class="highlight-tag">&lt;head&gt;</span> <span class="html-comment">&lt;-- Informazioni INVISIBILI sulla pagina --&gt;</span></div>
-                    <div class="html-line">    &lt;meta charset="UTF-8"&gt;</div>
-                    <div class="html-line">    &lt;title&gt;<span class="highlight-content">Titolo che appare nella tab del browser</span>&lt;/title&gt;</div>
-                    <div class="html-line">  <span class="highlight-tag">&lt;/head&gt;</span></div>
-                    <div class="html-line">  <span class="highlight-tag">&lt;body&gt;</span> <span class="html-comment">&lt;-- Contenuto VISIBILE della pagina --&gt;</span></div>
-                    <div class="html-line">    &lt;h1&gt;<span class="highlight-content">Titolo principale</span>&lt;/h1&gt;</div>
-                    <div class="html-line">    &lt;p&gt;<span class="highlight-content">Un paragrafo di testo</span>&lt;/p&gt;</div>
-                    <div class="html-line">  <span class="highlight-tag">&lt;/body&gt;</span></div>
-                    <div class="html-line"><span class="highlight-tag">&lt;/html&gt;</span> <span class="html-comment">&lt;-- Fine della pagina --&gt;</span></div>
-                </div>
-                
-                <div class="info-box tip">
-                    <h4>💡 Suggerimento</h4>
-                    <p>Notate come ogni tag che si apre <code>&lt;tag&gt;</code> deve anche chiudersi <code>&lt;/tag&gt;</code>. È come aprire e chiudere delle parentesi!</p>
-                </div>
-            </section>
+        <!-- ANATOMIA DI UNA PAGINA HTML -->
+        <section class="section">
+          <h2>📋 Anatomia di una Pagina HTML</h2>
+          <p>
+            Ogni pagina HTML ha sempre la stessa struttura di base. Impariamo a
+            riconoscere le parti principali:
+          </p>
 
-            <!-- LE DUE PARTI PRINCIPALI -->
-            <section class="section">
-                <h2>🧠 HEAD vs BODY: Le Due Parti Principali</h2>
-                
-                <div class="demo-container">
-                    <div>
-                        <div class="demo-header">📋 HEAD (Invisibile)</div>
-                        <div class="demo-code">
-&lt;head&gt;
-  &lt;title&gt;Titolo della pagina&lt;/title&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;style&gt;
-    body { color: blue; }
-  &lt;/style&gt;
-&lt;/head&gt;
-                        </div>
-                        <p><strong>Cosa contiene:</strong></p>
-                        <ul>
-                            <li>Titolo che appare nella tab</li>
-                            <li>Informazioni per il browser</li>
-                            <li>Stili CSS</li>
-                            <li>Link ad altri file</li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <div class="demo-header">👀 BODY (Visibile)</div>
-                        <div class="demo-code">
-&lt;body&gt;
-  &lt;h1&gt;Titolo che si vede&lt;/h1&gt;
-  &lt;p&gt;Paragrafo visibile&lt;/p&gt;
-  &lt;img src="foto.jpg"&gt;
-  &lt;a href="link.html"&gt;Collegamento&lt;/a&gt;
-&lt;/body&gt;
-                        </div>
-                        <p><strong>Cosa contiene:</strong></p>
-                        <ul>
-                            <li>Tutti i testi visibili</li>
-                            <li>Immagini</li>
-                            <li>Link e menu</li>
-                            <li>Tutto ciò che l'utente vede</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="info-box warning">
-                    <h4>⚠️ Errore Comune</h4>
-                    <p>Se mettete contenuto visibile nell'HEAD o informazioni nell'ordine sbagliato, la pagina potrebbe non funzionare correttamente!</p>
-                </div>
-            </section>
-
-            <!-- TAG FONDAMENTALI -->
-            <section class="section">
-                <h2>🏷️ I Tag HTML Fondamentali</h2>
-                <p>Questi sono i tag che incontrerete più spesso. Non dovete memorizzarli, ma imparare a riconoscerli!</p>
-                
-                <div class="tag-grid">
-                    <div class="tag-card">
-                        <div class="tag-name">&lt;h1&gt; &lt;h2&gt; &lt;h3&gt;</div>
-                        <h4>Titoli e Sottotitoli</h4>
-                        <p>h1 = titolo principale<br>
-                        h2 = sottotitolo<br>
-                        h3, h4, h5, h6 = titoli sempre più piccoli</p>
-                        <small>💡 Usate h1 solo una volta per pagina!</small>
-                    </div>
-                    
-                    <div class="tag-card">
-                        <div class="tag-name">&lt;p&gt;</div>
-                        <h4>Paragrafi</h4>
-                        <p>Contiene il testo normale della pagina. Ogni &lt;p&gt; crea un nuovo paragrafo con spazio sopra e sotto.</p>
-                    </div>
-                    
-                    <div class="tag-card">
-                        <div class="tag-name">&lt;a&gt;</div>
-                        <h4>Collegamenti (Link)</h4>
-                        <p>&lt;a href="pagina.html"&gt;Testo del link&lt;/a&gt;<br>
-                        L'attributo <strong>href</strong> dice dove andare quando si clicca.</p>
-                    </div>
-                    
-                    <div class="tag-card">
-                        <div class="tag-name">&lt;img&gt;</div>
-                        <h4>Immagini</h4>
-                        <p>&lt;img src="foto.jpg" alt="Descrizione"&gt;<br>
-                        <strong>src</strong> = percorso dell'immagine<br>
-                        <strong>alt</strong> = testo alternativo</p>
-                    </div>
-                    
-                    <div class="tag-card">
-                        <div class="tag-name">&lt;div&gt;</div>
-                        <h4>Contenitore Generico</h4>
-                        <p>Come una "scatola" che contiene altri elementi. Molto usato per organizzare la pagina.</p>
-                    </div>
-                    
-                    <div class="tag-card">
-                        <div class="tag-name">&lt;ul&gt; &lt;ol&gt; &lt;li&gt;</div>
-                        <h4>Liste</h4>
-                        <p>&lt;ul&gt; = lista con pallini<br>
-                        &lt;ol&gt; = lista numerata<br>
-                        &lt;li&gt; = elemento della lista</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- DEMO LIVE -->
-            <section class="section">
-                <h2>🔴 Demo Live: Modifichiamo il Codice</h2>
-                <p>Guardate come il codice HTML diventa una pagina visibile:</p>
-                
-                <div class="demo-container">
-                    <div>
-                        <div class="demo-header">💻 Codice HTML</div>
-                        <div class="demo-code" id="demo-code">
-&lt;h1&gt;Il Mio Blog&lt;/h1&gt;
-&lt;h2&gt;Articolo del giorno&lt;/h2&gt;
-&lt;p&gt;Oggi ho imparato l'HTML!&lt;/p&gt;
-&lt;p&gt;È più facile di quanto pensassi.&lt;/p&gt;
-
-&lt;h3&gt;Link utili:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="#"&gt;Tutorial HTML&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#"&gt;Tutorial CSS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="demo-header">👀 Risultato Visibile</div>
-                        <div class="demo-result">
-                            <h1 style="color: #2c3e50; margin-bottom: 1rem;">Il Mio Blog</h1>
-                            <h2 style="color: #3498db; margin-bottom: 0.5rem;">Articolo del giorno</h2>
-                            <p style="margin-bottom: 1rem;">Oggi ho imparato l'HTML!</p>
-                            <p style="margin-bottom: 1rem;">È più facile di quanto pensassi.</p>
-                            
-                            <h3 style="color: #3498db; margin-bottom: 0.5rem;">Link utili:</h3>
-                            <ul>
-                                <li><a href="#" style="color: #e74c3c;">Tutorial HTML</a></li>
-                                <li><a href="css_styles_page.HTML" style="color: #e74c3c;">Tutorial CSS</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-box info">
-                    <h4>🎯 Osservate</h4>
-                    <p>Vedete come ogni tag HTML corrisponde a qualcosa di visibile sulla destra? Questo è il "rendering" della pagina!</p>
-                </div>
-            </section>
-
-            <!-- ESERCIZIO PRATICO -->
-            <section class="exercise-box">
-                <h3>🚀 Esercizio Pratico</h3>
-                <p>Ora tocca a voi! Create una pagina HTML che parli di voi stessi.</p>
-                
-                <div class="exercise-steps">
-                    <h4>Cosa fare:</h4>
-                    <ol>
-                        <li>Aprite VS Code</li>
-                        <li>Create un nuovo file chiamato <strong>about-me.html</strong></li>
-                        <li>Usate questa struttura di base:</li>
-                    </ol>
-                    
-                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 5px; margin: 1rem 0; font-family: monospace; font-size: 0.9rem;">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="it"&gt;
-&lt;head&gt;
-    &lt;title&gt;Chi sono - [Vostro Nome]&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Ciao, sono [Vostro Nome]!&lt;/h1&gt;
-    &lt;h2&gt;I miei hobby&lt;/h2&gt;
-    &lt;p&gt;[Scrivete qualcosa sui vostri hobby]&lt;/p&gt;
-    
-    &lt;h2&gt;Materie preferite&lt;/h2&gt;
-    &lt;ul&gt;
-        &lt;li&gt;[Prima materia]&lt;/li&gt;
-        &lt;li&gt;[Seconda materia]&lt;/li&gt;
-        &lt;li&gt;[Terza materia]&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                    </div>
-                    
-                    <h4>Sfida bonus:</h4>
-                    <ul>
-                        <li>Aggiungete un h3 con "I miei siti preferiti"</li>
-                        <li>Create una lista con link a 3 siti che vi piacciono</li>
-                        <li>Aggiungete un paragrafo finale con i vostri obiettivi</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- RECAP E PROSSIMO PASSO -->
-            <section class="section">
-                <h2>📚 Recap: Cosa Avete Imparato</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
-                        <h4>✅ Struttura HTML</h4>
-                        <p>HEAD (invisibile) + BODY (visibile)</p>
-                    </div>
-                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
-                        <h4>✅ Tag Principali</h4>
-                        <p>h1-h6, p, a, img, div, ul/ol/li</p>
-                    </div>
-                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
-                        <h4>✅ Come Leggere Codice</h4>
-                        <p>Riconoscere tag di apertura e chiusura</p>
-                    </div>
-                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px;">
-                        <h4>✅ Pratica</h4>
-                        <p>Creato la vostra pagina personale</p>
-                    </div>
-                </div>
-                
-                <div style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; text-align: center;">
-                    <h3>🎉 Prossimo Passo: CSS e Stili</h3>
-                    <p>Ora che sapete leggere l'HTML, impariamo a renderlo bello con i CSS!</p>
-                </div>
-            </section>
-
-            <!-- NAVIGATION BUTTONS -->
-            <div class="nav-buttons">
-                <a href="setup.html" class="btn btn-secondary">← Setup VS Code</a>
-                <a href="css_styles_page.HTML" class="btn btn-primary">Prossima Lezione: CSS Base →</a>
+          <div class="html-anatomy">
+            <div class="html-line">
+              <span class="highlight-tag">&lt;!DOCTYPE html&gt;</span>
+              <span class="html-comment"
+                >&lt;!-- Dice al browser: "Questa è una pagina HTML5"
+                --&gt;</span
+              >
             </div>
+            <div class="html-line">
+              <span class="highlight-tag">&lt;html lang="it"&gt;</span>
+              <span class="html-comment"
+                >&lt;!-- Inizia la pagina, lingua italiana --&gt;</span
+              >
+            </div>
+            <div class="html-line">
+              <span class="highlight-tag">&lt;head&gt;</span>
+              <span class="html-comment"
+                >&lt;!-- Informazioni INVISIBILI sulla pagina --&gt;</span
+              >
+            </div>
+            <div class="html-line">&lt;meta charset="UTF-8"&gt;</div>
+            <div class="html-line">
+              &lt;title&gt;<span class="highlight-content"
+                >Titolo che appare nella tab del browser</span
+              >&lt;/title&gt;
+            </div>
+            <div class="html-line">
+              <span class="highlight-tag">&lt;/head&gt;</span>
+            </div>
+            <div class="html-line">
+              <span class="highlight-tag">&lt;body&gt;</span>
+              <span class="html-comment"
+                >&lt;!-- Contenuto VISIBILE della pagina --&gt;</span
+              >
+            </div>
+            <div class="html-line">
+              &lt;h1&gt;<span class="highlight-content">Titolo principale</span
+              >&lt;/h1&gt;
+            </div>
+            <div class="html-line">
+              &lt;p&gt;<span class="highlight-content"
+                >Un paragrafo di testo</span
+              >&lt;/p&gt;
+            </div>
+            <div class="html-line">
+              <span class="highlight-tag">&lt;/body&gt;</span>
+            </div>
+            <div class="html-line">
+              <span class="highlight-tag">&lt;/html&gt;</span>
+              <span class="html-comment">&lt;!-- Fine della pagina --&gt;</span>
+            </div>
+          </div>
+
+          <div class="info-box tip">
+            <h4>💡 Suggerimento</h4>
+            <p>
+              Notate come ogni tag che si apre <code>&lt;tag&gt;</code> deve
+              anche chiudersi <code>&lt;/tag&gt;</code>. È come aprire e
+              chiudere delle parentesi!
+            </p>
+          </div>
+        </section>
+
+        <!-- LE DUE PARTI PRINCIPALI -->
+        <section class="section">
+          <h2>🧠 HEAD vs BODY: Le Due Parti Principali</h2>
+
+          <div class="demo-container">
+            <div>
+              <div class="demo-header">📋 HEAD (Invisibile)</div>
+              <div class="demo-code">
+                &lt;head&gt; &lt;title&gt;Titolo della pagina&lt;/title&gt;
+                &lt;meta charset="UTF-8"&gt; &lt;style&gt; body { color: blue; }
+                &lt;/style&gt; &lt;/head&gt;
+              </div>
+              <p><strong>Cosa contiene:</strong></p>
+              <ul>
+                <li>Titolo che appare nella tab</li>
+                <li>Informazioni per il browser</li>
+                <li>Stili CSS</li>
+                <li>Link ad altri file</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="demo-header">👀 BODY (Visibile)</div>
+              <div class="demo-code">
+                &lt;body&gt; &lt;h1&gt;Titolo che si vede&lt;/h1&gt;
+                &lt;p&gt;Paragrafo visibile&lt;/p&gt; &lt;img src="foto.jpg"&gt;
+                &lt;a href="link.html"&gt;Collegamento&lt;/a&gt; &lt;/body&gt;
+              </div>
+              <p><strong>Cosa contiene:</strong></p>
+              <ul>
+                <li>Tutti i testi visibili</li>
+                <li>Immagini</li>
+                <li>Link e menu</li>
+                <li>Tutto ciò che l'utente vede</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-box warning">
+            <h4>⚠️ Errore Comune</h4>
+            <p>
+              Se mettete contenuto visibile nell'HEAD o informazioni nell'ordine
+              sbagliato, la pagina potrebbe non funzionare correttamente!
+            </p>
+          </div>
+        </section>
+
+        <!-- TAG FONDAMENTALI -->
+        <section class="section">
+          <h2>🏷️ I Tag HTML Fondamentali</h2>
+          <p>
+            Questi sono i tag che incontrerete più spesso. Non dovete
+            memorizzarli, ma imparare a riconoscerli!
+          </p>
+
+          <div class="tag-grid">
+            <div class="tag-card">
+              <div class="tag-name">&lt;h1&gt; &lt;h2&gt; &lt;h3&gt;</div>
+              <h4>Titoli e Sottotitoli</h4>
+              <p>
+                h1 = titolo principale<br />
+                h2 = sottotitolo<br />
+                h3, h4, h5, h6 = titoli sempre più piccoli
+              </p>
+              <small>💡 Usate h1 solo una volta per pagina!</small>
+            </div>
+
+            <div class="tag-card">
+              <div class="tag-name">&lt;p&gt;</div>
+              <h4>Paragrafi</h4>
+              <p>
+                Contiene il testo normale della pagina. Ogni &lt;p&gt; crea un
+                nuovo paragrafo con spazio sopra e sotto.
+              </p>
+            </div>
+
+            <div class="tag-card">
+              <div class="tag-name">&lt;a&gt;</div>
+              <h4>Collegamenti (Link)</h4>
+              <p>
+                &lt;a href="pagina.html"&gt;Testo del link&lt;/a&gt;<br />
+                L'attributo <strong>href</strong> dice dove andare quando si
+                clicca.
+              </p>
+            </div>
+
+            <div class="tag-card">
+              <div class="tag-name">&lt;img&gt;</div>
+              <h4>Immagini</h4>
+              <p>
+                &lt;img src="foto.jpg" alt="Descrizione"&gt;<br />
+                <strong>src</strong> = percorso dell'immagine<br />
+                <strong>alt</strong> = testo alternativo
+              </p>
+            </div>
+
+            <div class="tag-card">
+              <div class="tag-name">&lt;div&gt;</div>
+              <h4>Contenitore Generico</h4>
+              <p>
+                Come una "scatola" che contiene altri elementi. Molto usato per
+                organizzare la pagina.
+              </p>
+            </div>
+
+            <div class="tag-card">
+              <div class="tag-name">&lt;ul&gt; &lt;ol&gt; &lt;li&gt;</div>
+              <h4>Liste</h4>
+              <p>
+                &lt;ul&gt; = lista con pallini<br />
+                &lt;ol&gt; = lista numerata<br />
+                &lt;li&gt; = elemento della lista
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- DEMO LIVE -->
+        <section class="section">
+          <h2>🔴 Demo Live: Modifichiamo il Codice</h2>
+          <p>Guardate come il codice HTML diventa una pagina visibile:</p>
+
+          <div class="demo-container">
+            <div>
+              <div class="demo-header">💻 Codice HTML</div>
+              <div class="demo-code" id="demo-code">
+                &lt;h1&gt;Il Mio Blog&lt;/h1&gt; &lt;h2&gt;Articolo del
+                giorno&lt;/h2&gt; &lt;p&gt;Oggi ho imparato l'HTML!&lt;/p&gt;
+                &lt;p&gt;È più facile di quanto pensassi.&lt;/p&gt;
+                &lt;h3&gt;Link utili:&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;a
+                href="#"&gt;Tutorial HTML&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a
+                href="#"&gt;Tutorial CSS&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;
+              </div>
+            </div>
+
+            <div>
+              <div class="demo-header">👀 Risultato Visibile</div>
+              <div class="demo-result">
+                <h1 style="color: #2c3e50; margin-bottom: 1rem">Il Mio Blog</h1>
+                <h2 style="color: #3498db; margin-bottom: 0.5rem">
+                  Articolo del giorno
+                </h2>
+                <p style="margin-bottom: 1rem">Oggi ho imparato l'HTML!</p>
+                <p style="margin-bottom: 1rem">
+                  È più facile di quanto pensassi.
+                </p>
+
+                <h3 style="color: #3498db; margin-bottom: 0.5rem">
+                  Link utili:
+                </h3>
+                <ul>
+                  <li><a href="#" style="color: #e74c3c">Tutorial HTML</a></li>
+                  <li>
+                    <a href="css_styles_page.HTML" style="color: #e74c3c"
+                      >Tutorial CSS</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box info">
+            <h4>🎯 Osservate</h4>
+            <p>
+              Vedete come ogni tag HTML corrisponde a qualcosa di visibile sulla
+              destra? Questo è il "rendering" della pagina!
+            </p>
+          </div>
+        </section>
+
+        <!-- ESERCIZIO PRATICO -->
+        <section class="exercise-box">
+          <h3>🚀 Esercizio Pratico</h3>
+          <p>
+            Ora tocca a voi! Create una pagina HTML che parli di voi stessi.
+          </p>
+
+          <div class="exercise-steps">
+            <h4>Cosa fare:</h4>
+            <ol>
+              <li>Aprite VS Code</li>
+              <li>
+                Create un nuovo file chiamato <strong>about-me.html</strong>
+              </li>
+              <li>Usate questa struttura di base:</li>
+            </ol>
+
+            <div
+              style="
+                background: rgba(0, 0, 0, 0.3);
+                padding: 1rem;
+                border-radius: 5px;
+                margin: 1rem 0;
+                font-family: monospace;
+                font-size: 0.9rem;
+              "
+            >
+              &lt;!DOCTYPE html&gt; &lt;html lang="it"&gt; &lt;head&gt;
+              &lt;title&gt;Chi sono - [Vostro Nome]&lt;/title&gt; &lt;/head&gt;
+              &lt;body&gt; &lt;h1&gt;Ciao, sono [Vostro Nome]!&lt;/h1&gt;
+              &lt;h2&gt;I miei hobby&lt;/h2&gt; &lt;p&gt;[Scrivete qualcosa sui
+              vostri hobby]&lt;/p&gt; &lt;h2&gt;Materie preferite&lt;/h2&gt;
+              &lt;ul&gt; &lt;li&gt;[Prima materia]&lt;/li&gt; &lt;li&gt;[Seconda
+              materia]&lt;/li&gt; &lt;li&gt;[Terza materia]&lt;/li&gt;
+              &lt;/ul&gt; &lt;/body&gt; &lt;/html&gt;
+            </div>
+
+            <h4>Sfida bonus:</h4>
+            <ul>
+              <li>Aggiungete un h3 con "I miei siti preferiti"</li>
+              <li>Create una lista con link a 3 siti che vi piacciono</li>
+              <li>Aggiungete un paragrafo finale con i vostri obiettivi</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- RECAP E PROSSIMO PASSO -->
+        <section class="section">
+          <h2>📚 Recap: Cosa Avete Imparato</h2>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 1rem;
+            "
+          >
+            <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px">
+              <h4>✅ Struttura HTML</h4>
+              <p>HEAD (invisibile) + BODY (visibile)</p>
+            </div>
+            <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px">
+              <h4>✅ Tag Principali</h4>
+              <p>h1-h6, p, a, img, div, ul/ol/li</p>
+            </div>
+            <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px">
+              <h4>✅ Come Leggere Codice</h4>
+              <p>Riconoscere tag di apertura e chiusura</p>
+            </div>
+            <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px">
+              <h4>✅ Pratica</h4>
+              <p>Creato la vostra pagina personale</p>
+            </div>
+          </div>
+
+          <div
+            style="
+              background: linear-gradient(45deg, #667eea, #764ba2);
+              color: white;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin-top: 2rem;
+              text-align: center;
+            "
+          >
+            <h3>🎉 Prossimo Passo: CSS e Stili</h3>
+            <p>
+              Ora che sapete leggere l'HTML, impariamo a renderlo bello con i
+              CSS!
+            </p>
+          </div>
+        </section>
+
+        <!-- NAVIGATION BUTTONS -->
+        <div class="nav-buttons">
+          <a href="setup.html" class="btn btn-secondary">← Setup VS Code</a>
+          <a href="css_styles_page.HTML" class="btn btn-primary"
+            >Prossima Lezione: CSS Base →</a
+          >
         </div>
+      </div>
     </main>
 
     <!-- SCRIPT -->
     <script>
-        // Evidenzia il codice quando viene cliccato per copiarlo facilmente
-        document.querySelectorAll('.demo-code, .html-anatomy').forEach(element => {
-            element.addEventListener('click', function() {
-                if (window.getSelection) {
-                    const selection = window.getSelection();
-                    const range = document.createRange();
-                    range.selectNodeContents(this);
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                }
-            });
+      // Evidenzia il codice quando viene cliccato per copiarlo facilmente
+      document
+        .querySelectorAll(".demo-code, .html-anatomy")
+        .forEach((element) => {
+          element.addEventListener("click", function () {
+            if (window.getSelection) {
+              const selection = window.getSelection();
+              const range = document.createRange();
+              range.selectNodeContents(this);
+              selection.removeAllRanges();
+              selection.addRange(range);
+            }
+          });
         });
-        
-        // Smooth scrolling per link interni
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+
+      // Smooth scrolling per link interni
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+          }
         });
+      });
     </script>
-</body>
+  </body>
 </html>
