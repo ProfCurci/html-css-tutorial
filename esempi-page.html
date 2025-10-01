@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esempi Pratici - Tutorial HTML e CSS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        color: white;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .esempi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .esempio-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .esempio-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .esempio-icon {
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .esempio-card h2 {
+        color: #667eea;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .esempio-card p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin: 0.2rem;
+      }
+
+      .badge-disponibile {
+        background-color: #4ade80;
+        color: white;
+      }
+
+      .badge-prossimamente {
+        background-color: #fbbf24;
+        color: #333;
+      }
+
+      .badges-container {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .esempio-features {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+
+      .esempio-features ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .esempio-features li {
+        padding: 0.5rem 0;
+        color: #555;
+        font-size: 0.95rem;
+      }
+
+      .esempio-features li:before {
+        content: "✓ ";
+        color: #4ade80;
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s;
+        text-align: center;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+      }
+
+      .btn-disabled {
+        background: #d1d5db;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .back-home {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .back-home a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 25px;
+        display: inline-block;
+        transition: background 0.3s;
+      }
+
+      .back-home a:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Card placeholder con stile disattivato */
+      .esempio-card.placeholder {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .esempio-card.placeholder:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📚 Esempi Pratici</h1>
+        <p class="subtitle">
+          Impara HTML e CSS attraverso progetti reali e divertenti!
+        </p>
+      </header>
+
+      <div class="esempi-grid">
+        <!-- Card Pokémon -->
+        <a href="esempi/pokemon-page.html" class="esempio-card">
+          <div class="esempio-icon">🔴⚪</div>
+          <h2>Il Mondo Pokémon</h2>
+          <div class="badges-container">
+            <span class="badge badge-disponibile">Disponibile</span>
+          </div>
+          <p>Esplora una pagina colorata dedicata ai Pokémon più famosi!</p>
+          <div class="esempio-features">
+            <ul>
+              <li>Card colorate e animate</li>
+              <li>Effetti hover creativi</li>
+              <li>Layout responsive</li>
+              <li>Perfetto per iniziare!</li>
+            </ul>
+          </div>
+          <span class="btn">Vai all'Esempio</span>
+        </a>
+
+        <!-- Card Minecraft -->
+        <a href="esempi/minecraft-page.html" class="esempio-card">
+          <div class="esempio-icon">⛏️🧱</div>
+          <h2>Il Mondo di Minecraft</h2>
+          <div class="badges-container">
+            <span class="badge badge-disponibile">Disponibile</span>
+          </div>
+          <p>Scopri blocchi e strumenti del gioco più amato dai ragazzi!</p>
+          <div class="esempio-features">
+            <ul>
+              <li>Stile pixelato unico</li>
+              <li>Categorie personalizzate</li>
+              <li>Animazioni a tema</li>
+              <li>Box informativi dettagliati</li>
+            </ul>
+          </div>
+          <span class="btn">Vai all'Esempio</span>
+        </a>
+
+        <!-- Placeholder 1 -->
+        <div class="esempio-card placeholder">
+          <div class="esempio-icon">🎮</div>
+          <h2>Videogiochi Classici</h2>
+          <div class="badges-container">
+            <span class="badge badge-prossimamente">Prossimamente</span>
+          </div>
+          <p>Una collezione di giochi retro che hanno fatto la storia!</p>
+          <div class="esempio-features">
+            <ul>
+              <li>Grafica anni '80-'90</li>
+              <li>Timeline interattiva</li>
+              <li>Curiosità e aneddoti</li>
+              <li>Effetti nostalgici</li>
+            </ul>
+          </div>
+          <span class="btn btn-disabled">In Arrivo</span>
+        </div>
+
+        <!-- Placeholder 2 -->
+        <div class="esempio-card placeholder">
+          <div class="esempio-icon">🎬</div>
+          <h2>Film e Serie TV</h2>
+          <div class="badges-container">
+            <span class="badge badge-prossimamente">Prossimamente</span>
+          </div>
+          <p>Le tue serie preferite con recensioni e voti!</p>
+          <div class="esempio-features">
+            <ul>
+              <li>Card stile Netflix</li>
+              <li>Sistema di rating</li>
+              <li>Categorie per genere</li>
+              <li>Trailer integrati</li>
+            </ul>
+          </div>
+          <span class="btn btn-disabled">In Arrivo</span>
+        </div>
+
+        <!-- Placeholder 3 -->
+        <div class="esempio-card placeholder">
+          <div class="esempio-icon">⚽</div>
+          <h2>Mondo dello Sport</h2>
+          <div class="badges-container">
+            <span class="badge badge-prossimamente">Prossimamente</span>
+          </div>
+          <p>Statistiche e profili dei tuoi atleti preferiti!</p>
+          <div class="esempio-features">
+            <ul>
+              <li>Card sportive dinamiche</li>
+              <li>Statistiche in tempo reale</li>
+              <li>Classifiche e punteggi</li>
+              <li>Design competitivo</li>
+            </ul>
+          </div>
+          <span class="btn btn-disabled">In Arrivo</span>
+        </div>
+
+        <!-- Placeholder 4 -->
+        <div class="esempio-card placeholder">
+          <div class="esempio-icon">🚗</div>
+          <h2>Supercar del Futuro</h2>
+          <div class="badges-container">
+            <span class="badge badge-prossimamente">Prossimamente</span>
+          </div>
+          <p>Le auto più veloci e lussuose del mondo!</p>
+          <div class="esempio-features">
+            <ul>
+              <li>Gallery fotografiche</li>
+              <li>Schede tecniche</li>
+              <li>Animazioni premium</li>
+              <li>Effetti 3D</li>
+            </ul>
+          </div>
+          <span class="btn btn-disabled">In Arrivo</span>
+        </div>
+      </div>
+
+      <div class="back-home">
+        <a href="index.html">← Torna alla Home</a>
+      </div>
+    </div>
+  </body>
+</html>
