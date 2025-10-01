@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Il Mondo di Minecraft</title>
+
+    <style>
+      /* CSS: Stilizziamo il body (corpo della pagina) */
+      body {
+        font-family: "Courier New", monospace; /* Font stile pixelato */
+        background: linear-gradient(
+          to bottom,
+          #87ceeb,
+          #228b22
+        ); /* Sfondo cielo-terra */
+        margin: 0; /* Rimuove margini predefiniti */
+        padding: 20px; /* Spazio interno */
+      }
+
+      /* CSS: Stilizziamo l'intestazione principale */
+      h1 {
+        text-align: center; /* Testo centrato */
+        color: #4a4a4a; /* Colore grigio scuro */
+        text-shadow: 3px 3px 0px #000000; /* Ombra pixelata */
+        font-size: 2.8em; /* Dimensione del testo */
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Sfondo bianco semitrasparente */
+        padding: 15px; /* Spazio interno */
+        border: 4px solid #000; /* Bordo nero */
+      }
+
+      /* CSS: Contenitore per le card */
+      .container {
+        max-width: 1000px; /* Larghezza massima */
+        margin: 0 auto; /* Centra il contenitore */
+        display: flex; /* Layout flessibile */
+        flex-wrap: wrap; /* Permette di andare a capo */
+        gap: 20px; /* Spazio tra gli elementi */
+        justify-content: center; /* Centra gli elementi */
+      }
+
+      /* CSS: Singola card blocco Minecraft */
+      .minecraft-card {
+        background-color: #f5f5dc; /* Sfondo beige */
+        border: 5px solid #654321; /* Bordo marrone */
+        padding: 20px; /* Spazio interno */
+        width: 250px; /* Larghezza fissa */
+        box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3); /* Ombra pixelata */
+        transition: transform 0.2s; /* Animazione fluida */
+      }
+
+      /* CSS: Effetto hover (quando passi il mouse sopra) */
+      .minecraft-card:hover {
+        transform: translate(-4px, -4px); /* Sposta la card */
+        box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.3); /* Ombra più grande */
+      }
+
+      /* CSS: Immagine del blocco */
+      .block-image {
+        width: 100%; /* Larghezza 100% del contenitore */
+        height: 200px; /* Altezza fissa */
+        background-color: #d3d3d3; /* Colore di sfondo */
+        border: 3px solid #000; /* Bordo nero */
+        display: flex; /* Layout flessibile */
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Centra orizzontalmente */
+        font-size: 80px; /* Dimensione emoji */
+        margin-bottom: 15px; /* Spazio sotto */
+      }
+
+      /* CSS: Nome del blocco */
+      .block-name {
+        font-size: 1.4em; /* Dimensione testo */
+        font-weight: bold; /* Grassetto */
+        color: #2c3e50; /* Colore blu scuro */
+        margin-bottom: 10px; /* Spazio sotto */
+        text-transform: uppercase; /* Tutto maiuscolo */
+      }
+
+      /* CSS: Categoria del blocco */
+      .block-category {
+        display: inline-block; /* Elemento inline con proprietà block */
+        padding: 5px 15px; /* Spazio interno */
+        border: 2px solid #000; /* Bordo nero */
+        color: white; /* Testo bianco */
+        font-size: 0.85em; /* Dimensione testo */
+        margin: 5px; /* Margine esterno */
+        font-weight: bold; /* Grassetto */
+      }
+
+      /* CSS: Colori diversi per ogni categoria */
+      .category-building {
+        background-color: #8b4513;
+      }
+      .category-nature {
+        background-color: #228b22;
+      }
+      .category-mineral {
+        background-color: #4169e1;
+      }
+      .category-tool {
+        background-color: #696969;
+      }
+
+      /* CSS: Descrizione del blocco */
+      .block-description {
+        color: #333; /* Colore grigio scuro */
+        line-height: 1.6; /* Altezza della riga */
+        margin-top: 10px; /* Spazio sopra */
+        font-size: 0.95em; /* Dimensione testo */
+      }
+
+      /* CSS: Informazioni aggiuntive */
+      .block-info {
+        background-color: #ffe4b5; /* Sfondo color moccasino */
+        padding: 8px; /* Spazio interno */
+        margin-top: 10px; /* Spazio sopra */
+        border-left: 4px solid #ff8c00; /* Bordo sinistro arancione */
+        font-size: 0.85em; /* Dimensione testo */
+      }
+
+      /* CSS: Footer (piè di pagina) */
+      footer {
+        text-align: center; /* Testo centrato */
+        margin-top: 40px; /* Spazio sopra */
+        color: #fff; /* Colore bianco */
+        background-color: #2c3e50; /* Sfondo scuro */
+        padding: 15px; /* Spazio interno */
+        font-weight: bold; /* Grassetto */
+        border: 3px solid #000; /* Bordo nero */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML: Intestazione principale della pagina -->
+    <h1>⛏️ IL MONDO DI MINECRAFT 🧱</h1>
+
+    <!-- HTML: Contenitore principale per le card -->
+    <div class="container">
+      <!-- HTML: Prima card blocco (Diamante) -->
+      <div class="minecraft-card">
+        <div class="block-image">💎</div>
+        <div class="block-name">Diamante</div>
+        <span class="block-category category-mineral">Minerale</span>
+        <p class="block-description">
+          Il materiale più prezioso e resistente del gioco! Si trova nelle
+          profondità della terra, sotto il livello 16.
+        </p>
+        <div class="block-info">
+          <strong>Dove trovarlo:</strong> Layer 5-12 |
+          <strong>Rarità:</strong> ★★★★★
+        </div>
+      </div>
+
+      <!-- HTML: Seconda card blocco (Legno) -->
+      <div class="minecraft-card">
+        <div class="block-image">🪵</div>
+        <div class="block-name">Legno</div>
+        <span class="block-category category-building">Costruzione</span>
+        <p class="block-description">
+          Il blocco fondamentale per iniziare! Taglia gli alberi per ottenere
+          legno e creare attrezzi, armi e costruzioni.
+        </p>
+        <div class="block-info">
+          <strong>Dove trovarlo:</strong> Alberi |
+          <strong>Rarità:</strong> ★☆☆☆☆
+        </div>
+      </div>
+
+      <!-- HTML: Terza card blocco (Terra) -->
+      <div class="minecraft-card">
+        <div class="block-image">🟫</div>
+        <div class="block-name">Terra</div>
+        <span class="block-category category-nature">Natura</span>
+        <p class="block-description">
+          Uno dei blocchi più comuni. Perfetto per costruzioni temporanee e per
+          coltivare piante e alberi.
+        </p>
+        <div class="block-info">
+          <strong>Dove trovarlo:</strong> Ovunque |
+          <strong>Rarità:</strong> ★☆☆☆☆
+        </div>
+      </div>
+
+      <!-- HTML: Quarta card blocco (Piccone) -->
+      <div class="minecraft-card">
+        <div class="block-image">⛏️</div>
+        <div class="block-name">Piccone</div>
+        <span class="block-category category-tool">Strumento</span>
+        <p class="block-description">
+          Lo strumento essenziale per ogni minatore! Serve per estrarre pietra,
+          minerali e materiali preziosi.
+        </p>
+        <div class="block-info">
+          <strong>Materiali:</strong> Legno, Pietra, Ferro, Diamante |
+          <strong>Utilità:</strong> ★★★★★
+        </div>
+      </div>
+      <div class="back-home">
+        <a href="../index.html">← Torna alla Home</a>
+      </div>
+    </div>
+
+    <!-- HTML: Piè di pagina -->
+    <footer>
+      <p>✨ Pagina creata per imparare HTML e CSS giocando! ✨</p>
+      <p style="font-size: 0.9em; margin-top: 5px">
+        Inizia la tua avventura nel codice!
+      </p>
+    </footer>
+  </body>
+</html>

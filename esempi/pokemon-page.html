@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Miei Pokémon Preferiti</title>
+
+    <style>
+      /* CSS: Stilizziamo il body (corpo della pagina) */
+      body {
+        font-family: Arial, sans-serif; /* Tipo di carattere */
+        background: linear-gradient(
+          to bottom,
+          #87ceeb,
+          #98d8e8
+        ); /* Sfondo sfumato */
+        margin: 0; /* Rimuove margini predefiniti */
+        padding: 20px; /* Spazio interno */
+      }
+
+      /* CSS: Stilizziamo l'intestazione principale */
+      h1 {
+        text-align: center; /* Testo centrato */
+        color: #ff0000; /* Colore rosso Pokémon */
+        text-shadow: 2px 2px 4px #000000; /* Ombra del testo */
+        font-size: 2.5em; /* Dimensione del testo */
+      }
+
+      /* CSS: Contenitore per le card */
+      .container {
+        max-width: 1000px; /* Larghezza massima */
+        margin: 0 auto; /* Centra il contenitore */
+        display: flex; /* Layout flessibile */
+        flex-wrap: wrap; /* Permette di andare a capo */
+        gap: 20px; /* Spazio tra gli elementi */
+        justify-content: center; /* Centra gli elementi */
+      }
+
+      /* CSS: Singola card Pokémon */
+      .pokemon-card {
+        background-color: white; /* Sfondo bianco */
+        border-radius: 15px; /* Angoli arrotondati */
+        padding: 20px; /* Spazio interno */
+        width: 250px; /* Larghezza fissa */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra */
+        transition: transform 0.3s; /* Animazione fluida */
+      }
+
+      /* CSS: Effetto hover (quando passi il mouse sopra) */
+      .pokemon-card:hover {
+        transform: scale(1.05); /* Ingrandisce la card */
+      }
+
+      /* CSS: Immagine del Pokémon */
+      .pokemon-image {
+        width: 100%; /* Larghezza 100% del contenitore */
+        height: 200px; /* Altezza fissa */
+        background-color: #f0f0f0; /* Colore di sfondo */
+        border-radius: 10px; /* Angoli arrotondati */
+        display: flex; /* Layout flessibile */
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Centra orizzontalmente */
+        font-size: 60px; /* Dimensione emoji */
+        margin-bottom: 15px; /* Spazio sotto */
+      }
+
+      /* CSS: Nome del Pokémon */
+      .pokemon-name {
+        font-size: 1.5em; /* Dimensione testo */
+        font-weight: bold; /* Grassetto */
+        color: #2c3e50; /* Colore blu scuro */
+        margin-bottom: 10px; /* Spazio sotto */
+      }
+
+      /* CSS: Tipo del Pokémon */
+      .pokemon-type {
+        display: inline-block; /* Elemento inline con proprietà block */
+        padding: 5px 15px; /* Spazio interno */
+        border-radius: 20px; /* Molto arrotondato */
+        color: white; /* Testo bianco */
+        font-size: 0.9em; /* Dimensione testo */
+        margin: 5px; /* Margine esterno */
+      }
+
+      /* CSS: Colori diversi per ogni tipo */
+      .type-fire {
+        background-color: #ff4500;
+      }
+      .type-water {
+        background-color: #1e90ff;
+      }
+      .type-grass {
+        background-color: #32cd32;
+      }
+      .type-electric {
+        background-color: #ffd700;
+        color: #333;
+      }
+
+      /* CSS: Descrizione del Pokémon */
+      .pokemon-description {
+        color: #555; /* Colore grigio */
+        line-height: 1.5; /* Altezza della riga */
+        margin-top: 10px; /* Spazio sopra */
+      }
+
+      /* CSS: Footer (piè di pagina) */
+      footer {
+        text-align: center; /* Testo centrato */
+        margin-top: 40px; /* Spazio sopra */
+        color: #333; /* Colore testo */
+        font-weight: bold; /* Grassetto */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML: Intestazione principale della pagina -->
+    <h1>🔴 I Miei Pokémon Preferiti ⚪</h1>
+
+    <!-- HTML: Contenitore principale per le card -->
+    <div class="container">
+      <!-- HTML: Prima card Pokémon (Charmander) -->
+      <div class="pokemon-card">
+        <div class="pokemon-image">🔥</div>
+        <div class="pokemon-name">Charmander</div>
+        <span class="pokemon-type type-fire">Fuoco</span>
+        <p class="pokemon-description">
+          Un piccolo Pokémon lucertola con una fiamma sulla coda. La fiamma
+          indica il suo stato di salute.
+        </p>
+      </div>
+
+      <!-- HTML: Seconda card Pokémon (Squirtle) -->
+      <div class="pokemon-card">
+        <div class="pokemon-image">💧</div>
+        <div class="pokemon-name">Squirtle</div>
+        <span class="pokemon-type type-water">Acqua</span>
+        <p class="pokemon-description">
+          Una piccola tartaruga blu che può spruzzare acqua dalla bocca. Il suo
+          guscio lo protege dai pericoli.
+        </p>
+      </div>
+
+      <!-- HTML: Terza card Pokémon (Bulbasaur) -->
+      <div class="pokemon-card">
+        <div class="pokemon-image">🌱</div>
+        <div class="pokemon-name">Bulbasaur</div>
+        <span class="pokemon-type type-grass">Erba</span>
+        <p class="pokemon-description">
+          Porta un seme sulla schiena fin dalla nascita. Il seme cresce
+          lentamente con il Pokémon.
+        </p>
+      </div>
+
+      <!-- HTML: Quarta card Pokémon (Pikachu) -->
+      <div class="pokemon-card">
+        <div class="pokemon-image">⚡</div>
+        <div class="pokemon-name">Pikachu</div>
+        <span class="pokemon-type type-electric">Elettro</span>
+        <p class="pokemon-description">
+          Il Pokémon più famoso del mondo! Accumula elettricità nelle guance e
+          può rilasciare potenti scariche elettriche.
+        </p>
+      </div>
+      <div class="back-home">
+        <a href="../index.html">← Torna alla Home</a>
+      </div>
+    </div>
+
+    <!-- HTML: Piè di pagina -->
+    <footer>
+      <p>Pagina creata per imparare HTML e CSS! 🎓</p>
+    </footer>
+  </body>
+</html>
